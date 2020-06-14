@@ -43,7 +43,7 @@
 |contition|string|null:false|
 |preparation|string|null:false|
 |postage|string|null:false|
-|user_id|references|null:false|
+|user_id|references|null:false,foreign_key:true|
 |status|string|null:false|
 
 #### Association
