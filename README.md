@@ -1,13 +1,13 @@
 # README
 
 ## versions
-rails:5,2,4,3
-ruby:2.5.1p57
-mysql:ver 14.14 Distrib 5.6.47
+- rails:5,2,4,3
+- ruby:2.5.1p57
+- mysql:ver 14.14 Distrib 5.6.47
 
 ## tables
 
-###Users table
+### Users table
 
 |Colummn|type|Optionals|
 |-------|----|---------|
@@ -20,12 +20,12 @@ mysql:ver 14.14 Distrib 5.6.47
 |birth|date|null:false|
 |description|text||
 
-####Association
+#### Association
 - has_many:items
 - has_many:creditcards
 - has_many:destination
 
-###Items table
+### Items table
 
 |Colummn|type|Optionals|
 |-------|----|---------|
@@ -40,7 +40,7 @@ mysql:ver 14.14 Distrib 5.6.47
 |size_id|references|null:false,foreign_key:true|
 |contition_id|references|null:false,foreign_key:true|
 
-####Association
+#### Association
 - belongs_to:user,dependent:destroy
 - has_many:itemimages
 - has_one:prefecture
@@ -50,7 +50,7 @@ mysql:ver 14.14 Distrib 5.6.47
 - has_one:condition
 - has_one:postage
 
-###CreditCards table
+### CreditCards table
 
 |Colummn|type|Optionals|
 |-------|----|---------|
@@ -58,10 +58,10 @@ mysql:ver 14.14 Distrib 5.6.47
 |payjp_custumer_id|string|null:false|
 |payjp_card_id|string|null:false|
 
-####Association
+#### Association
 - belongs_to:user,dependent:destroy
 
-###Destinations table
+### Destinations table
 
 |Colummn|type|Optionals|
 |-------|----|---------|
@@ -73,75 +73,75 @@ mysql:ver 14.14 Distrib 5.6.47
 |first_name|string|null:false|
 |last_name|string|null:false|
 
-####Association
+#### Association
 - belongs_to:user,dependent:destroy
 - has_one:prefecture
 
-###Prefectures table/Active_hash
+### Prefectures table/Active_hash
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |name|string|null:false|
 
-####Association
--has_many:destinations
+#### Association
+- has_many:destinations
 - has_many:items
 
-###ItemImages table
+### ItemImages table
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |item_id|references|null:false,foreign_key:true|
 |image|string|null:false|
 
-####Association
+#### Association
 - belongs_to:item,dependent:destroy
 
-###Categories table/Active_hash
+### Categories table/Active_hash
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |name|string|null:false|
 |mother|string||
 
-####Association
+#### Association
 - has_many:items
 
-###Brands table/Active_hash
+### Brands table/Active_hash
 
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |name|string|null:false|
 
-####Association
+#### Association
 - has_many:items
 
-###Sizes table/Active_hash
+### Sizes table/Active_hash
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |grade|string|null:false|
 
-####Association
--has_many:item
+#### Association
+- has_many:item
 
-###Conditions table/Active_hash
+### Conditions table/Active_hash
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |status|string|null:false|
 
-####Association
+#### Association
 - has_many:item
 
-###Preperations table/Active_hash
+### Preperations table/Active_hash
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |type|string|null:false|
 
-####Association
+#### Association
 - has_many:item
 
 ### Postages table/Active_hash
@@ -150,5 +150,5 @@ mysql:ver 14.14 Distrib 5.6.47
 |-------|----|---------|
 |type|string|null:false|
 
-####Association
+#### Association
 - has_many:itme
