@@ -21,9 +21,9 @@
 |description|text||
 
 #### Association
-- has_many:items
-- has_many:creditcards
-- has_many:destination
+- has_many:items,dependent:destroy
+- has_many:creditcards,dependent:destroy
+- has_many:destination,dependent:destroy
 
 ### Items table
 
@@ -41,14 +41,14 @@
 |contition_id|references|null:false,foreign_key:true|
 
 #### Association
-- belongs_to:user,dependent:destroy
-- has_many:itemimages
-- has_one:prefecture
-- has_one:category
-- has_one:brand
-- has_one:size
-- has_one:condition
-- has_one:postage
+- belongs_to:user
+- has_many:itemimages,dependent:destroy
+- belongs_to:prefecture
+- belongs_to:category
+- belongs_to:brand
+- belongs_to:size
+- belongs_to:condition
+- belongs_to:postage
 
 ### CreditCards table
 
@@ -59,7 +59,7 @@
 |payjp_card_id|string|null:false|
 
 #### Association
-- belongs_to:user,dependent:destroy
+- belongs_to:user
 
 ### Destinations table
 
@@ -74,8 +74,8 @@
 |last_name|string|null:false|
 
 #### Association
-- belongs_to:user,dependent:destroy
-- has_one:prefecture
+- belongs_to:user
+- belongs_to:prefecture
 
 ### Prefectures table/Active_hash
 
@@ -95,17 +95,18 @@
 |image|string|null:false|
 
 #### Association
-- belongs_to:item,dependent:destroy
+- belongs_to:item
 
 ### Categories table/Active_hash
 
 |Colummn|type|Optionals|
 |-------|----|---------|
 |name|string|null:false|
-|mother|string||
+|path|string||
 
 #### Association
 - has_many:items
+- has_ancestry
 
 ### Brands table/Active_hash
 
