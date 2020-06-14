@@ -16,6 +16,8 @@
 |email|string|null:false|
 |first_name|string|null:false|
 |last_name|string|null:false|
+|first_name_kana|string|null:false|
+|last_name_kana|string|null:false|
 |tel|string|null:false|
 |birth|date|null:false|
 |description|text||
