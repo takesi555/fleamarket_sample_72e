@@ -37,8 +37,12 @@
 |prefecture_id|references|null:fale,foreign_key:true|
 |category_id|references|null:false,foreign_key:true|
 |brand_id|references|null:false,foreign_key:true|
-|size_id|references|null:false,foreign_key:true|
-|contition_id|references|null:false,foreign_key:true|
+|size|string|null:false|
+|contition|string|null:false|
+|preparation|string|null:false|
+|postage|string|null:false|
+|user_id|references|null:false|
+|status|string|null:false|
 
 #### Association
 - belongs_to:user
@@ -46,9 +50,6 @@
 - belongs_to:prefecture
 - belongs_to:category
 - belongs_to:brand
-- belongs_to:size
-- belongs_to:condition
-- belongs_to:postage
 
 ### CreditCards table
 
@@ -117,39 +118,3 @@
 
 #### Association
 - has_many:items
-
-### Sizes table/Active_hash
-
-|Colummn|type|Optionals|
-|-------|----|---------|
-|grade|string|null:false|
-
-#### Association
-- has_many:item
-
-### Conditions table/Active_hash
-
-|Colummn|type|Optionals|
-|-------|----|---------|
-|status|string|null:false|
-
-#### Association
-- has_many:item
-
-### Preperations table/Active_hash
-
-|Colummn|type|Optionals|
-|-------|----|---------|
-|type|string|null:false|
-
-#### Association
-- has_many:item
-
-### Postages table/Active_hash
-
-|Colummn|type|Optionals|
-|-------|----|---------|
-|type|string|null:false|
-
-#### Association
-- has_many:itme
