@@ -25,7 +25,7 @@
 #### Association
 - has_many:items,dependent:destroy
 - has_many:creditcards,dependent:destroy
-- has_many:destination,dependent:destroy
+- has_many:destinations,dependent:destroy
 
 ### Items table
 
