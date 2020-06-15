@@ -40,11 +40,11 @@
 |category_id|references|null:false,foreign_key:true|
 |brand_id|references|null:false,foreign_key:true|
 |size|string|null:false|
-|contition|string|null:false|
-|preparation|string|null:false|
-|postage|string|null:false|
+|condition|integer|null:false|
+|preparation|integer|null:false|
+|postage|integer|null:false|
 |user_id|references|null:false,foreign_key:true|
-|status|string|null:false|
+|status|integer|null:false|
 
 #### Association
 - belongs_to:user
@@ -52,6 +52,12 @@
 - belongs_to:prefecture
 - belongs_to:category
 - belongs_to:brand
+
+#### Remarks
+- condition:enum
+- preparation:enum
+- postage:enum
+- status:enum
 
 ### CreditCards table
 
