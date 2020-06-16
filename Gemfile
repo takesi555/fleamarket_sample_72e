@@ -68,3 +68,5 @@ group :production do
   gem 'unicorn', '5.4.1'
   # Unicornの導入
 end
+
+gem 'devise'
