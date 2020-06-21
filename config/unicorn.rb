@@ -7,16 +7,16 @@ worker_processes 1
 #アプリケーションの設置されているディレクトリcurrentを指定
 working_directory "#{app_path}/current"
 
-#Unicornの起動に必要なファイルの設置場所を指定
+#Unicornの起動に必要なファイルの設置場所を指定sharedの中を参照する
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 
-#ポート番号を指定
+#ポート番号を指定sharedの中を参照する
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
 
-#エラーのログを記録するファイルを指定
+#エラーのログを記録するファイルを指定sharedの中を参照する
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 
-#通常のログを記録するファイルを指定
+#通常のログを記録するファイルを指定sharedの中を参照する
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
 #Railsアプリケーションの応答を待つ上限時間を設定
