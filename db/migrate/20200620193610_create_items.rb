@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.bigint       :buyer_id
       t.references   :prefecture,  type: :bigint,  null: false,  foreign_key:true
       t.references   :category,    type: :bigint,  null: false,  foreign_key:true
-      t.references   :brand,       type: :bigint,  null: false,  foreign_key:true
+      t.references   :brand,       type: :bigint,                foreign_key:true
       t.string       :size,                        null: false
       t.integer      :condition,                   null: false
       t.integer      :preparation,                 null: false
