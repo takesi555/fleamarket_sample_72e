@@ -36,14 +36,14 @@
 |description|text||
 |closed_time|timestamp||
 |buyer_id|bigint||
-|prefecture_id|references|null:fale,foreign_key:true|
-|category_id|references|null:false,foreign_key:true|
-|brand_id|references|null:false,foreign_key:true|
+|prefecture_id|references|bigint|null:false,foreign_key:true|
+|category_id|references|bigint|null:false,foreign_key:true|
+|brand_id|references|bigint|null:false,foreign_key:true|
 |size|string|null:false|
 |condition|integer|null:false|
 |preparation|integer|null:false|
 |postage|integer|null:false|
-|user_id|references|null:false,foreign_key:true|
+|user_id|references|bigint|null:false,foreign_key:true|
 |status|integer|null:false|
 
 #### Association
@@ -63,7 +63,7 @@
 
 |Colummn|type|Optionals|
 |-------|----|---------|
-|user_id|references|null:false,foreign_key:true|
+|user_id|references|bigint|null:false,foreign_key:true|
 |payjp_custumer_id|string|null:false|
 |payjp_card_id|string|null:false|
 
@@ -74,9 +74,9 @@
 
 |Colummn|type|Optionals|
 |-------|----|---------|
-|user_id|references|null:false,foreign_key:true|
+|user_id|references|bigint|null:false,foreign_key:true|
 |post_code|string|null:false|
-|prefecture_id|string|null:false,foreign_key:true|
+|prefecture_id|string|bigint|null:false,foreign_key:true|
 |city|string|null:false|
 |block_num|string||
 |first_name|string|null:false|
@@ -100,7 +100,7 @@
 
 |Colummn|type|Optionals|
 |-------|----|---------|
-|item_id|references|null:false,foreign_key:true|
+|item_id|references|bigint|null:false,foreign_key:true|
 |image|string|null:false|
 
 #### Association
