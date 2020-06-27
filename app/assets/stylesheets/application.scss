@@ -1,4 +1,7 @@
-@import "reset";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "items";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ @import "reset";
+ @import "./config/colors";
+
+ @import "./modules/items";
