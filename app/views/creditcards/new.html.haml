@@ -1,0 +1,18 @@
+.new-card_main
+  .new-card_main-title
+    新規登録
+  .new-card_main
+  =form_with model: @creditcard do |form|
+    .new-card_main-number
+      =form.label :number,"カード"
+      =form.text_field :number
+    .new-card_main-expdate
+      =form.label :expdate,"有効期限"
+      =form.text_field :expdate
+    .new-card_main-cvc
+      =form.label :cvc,"cvc"
+      =form.text_field :cvc
+    .new-card_main-name
+      =form.label :name,"名義"
+      =form.text_field :name
+    = form.submit "登録"

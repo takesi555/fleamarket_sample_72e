@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get 'confirm'
+      post 'purchase'
     end
   end
 end
