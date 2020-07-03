@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       post 'purchase'
     end
   end
+  resources :items, only: [:new, :create]
 end

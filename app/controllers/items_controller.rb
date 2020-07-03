@@ -1,8 +1,14 @@
 class ItemsController < ApplicationController
   require 'payjp'
 
-  def confirm
+  def new
+    @item = Item.new
+  end
 
+  def create
+  end
+
+  def confirm
   end
 
   def purchase
@@ -20,7 +26,6 @@ class ItemsController < ApplicationController
     rescue => error
       p error
       redirect_to confirm_item_path
-    end
-    
   end
+    
 end
