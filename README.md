@@ -36,7 +36,7 @@
 |description|text||
 |closed_time|timestamp||
 |buyer_id|bigint||
-|prefecture_id|integer|null:false|
+|prefecture_id|integer|null:false,foreign_key:true|
 |category_id|references|null:false,foreign_key:true|
 |brand_id|references|bignull:false,foreign_key:true|
 |size|string|null:false|
@@ -76,7 +76,7 @@
 |-------|----|---------|
 |user_id|references|null:false,foreign_key:true|
 |post_code|string|null:false|
-|prefecture_id|integer|null:false|
+|prefecture_id|integer|null:false,foreign_key:true|
 |city|string|null:false|
 |block_num|string||
 |first_name|string|null:false|
