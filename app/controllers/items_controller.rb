@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
     rescue => error
       p error
       redirect_to confirm_item_path
+    end
   end
     
 end
