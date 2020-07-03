@@ -20,9 +20,8 @@
           有効期限:
           12/34
         .confirm-main_purchase_btn
-          = form_with url: purchase_item_path do
-            :plain
-              <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_6bbb4903ef4b47c3dbb3f341"></script>
+          = form_with url: purchase_item_path do |f|
+            = f.submit
     .confirm-main_register-new-card_btn
     
 

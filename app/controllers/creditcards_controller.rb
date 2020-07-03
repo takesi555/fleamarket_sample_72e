@@ -3,7 +3,7 @@ class CreditcardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = "sk_secretkey"
+    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
     begin
       @customer = Payjp::Customer.retrieve("cus_a9fe173905e3134a8ea2f3f69540")
       
