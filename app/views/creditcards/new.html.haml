@@ -1,8 +1,44 @@
 .new-card_main
   .new-card_main-title
     新規登録
+  #number-form.payjs-outer
+  #expiry-form.payjs-outer
+  #cvc-form.payjs-outer
+  %span#token2
+  = link_to('name','javascript:void(0);',onclick: "onSubmit2(event)",type:'button')
+  <button onclick="onSubmit2(event)">トークン作成</button>
+  %button{type:"button",onclick:"onSubmit2(event)"}
+  %script{src:'https://js.pay.jp/v2/pay.js'}
+  = form_with url: creditcards_path ,id: "test" ,onsubmit: 'onSubmit2(event)' do |f|
+    %span#token2
+    = f.submit
+
+  :javascript
+    var payjp = Payjp('pk_test_6bbb4903ef4b47c3dbb3f341')
+    var elements4 = payjp.elements()
+  
+    // 入力フォームを分解して管理・配置できます
+    var numberElement = elements4.create('cardNumber')
+    var expiryElement = elements4.create('cardExpiry')
+    var cvcElement = elements4.create('cardCvc')
+    numberElement.mount('#number-form')
+    expiryElement.mount('#expiry-form')
+    cvcElement.mount('#cvc-form')
+  
+    // createTokenの引数には任意のElement1つを渡します
+    function onSubmit2(event) {
+      debugger;
+      payjp.createToken(numberElement).then(function(r) {
+      document.querySelector('#token2').innerText = r.error ? r.error.message : r.id
+      })
+      })
+    }
+  
   .new-card_main
-  =form_with model: @creditcard do |form|
+  = form_with url: creditcards_path do
+    :plain
+      <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_6bbb4903ef4b47c3dbb3f341"></script>
+  =form_with url: creditcards_path do |form|
     .new-card_main-number
       =form.label :number,"カード"
       =form.text_field :number

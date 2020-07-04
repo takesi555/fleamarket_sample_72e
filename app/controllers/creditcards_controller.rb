@@ -4,19 +4,16 @@ class CreditcardsController < ApplicationController
 
   def create
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
+    binding.pry
     begin
-      @customer = Payjp::Customer.retrieve("cus_a9fe173905e3134a8ea2f3f69540")
-      
-      @charge = Payjp::Charge.create(
-        amount: 1000,
-        customer: @customer[:id],
-        card: @customer[:default_card],
-        currency: 'jpy',
+      @customer = Payjp::Customer.create(
+        description: 'test'
       )
+      
       
     rescue => error
       p error
-      redirect_to confirm_item_path
+      redirect_to new_creditcard_path
     end
   end
 end

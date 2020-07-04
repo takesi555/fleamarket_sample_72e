@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def purchase
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
     begin
-      @customer = Payjp::Customer.retrieve("cus_a9fe173905e3134a8ea2f3f69540")
+      @customer = Payjp::Customer.retrieve("cus_4645fa1ce36409e3db5543e179e8")
       
       @charge = Payjp::Charge.create(
         amount: 1000,
