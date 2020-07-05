@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
 
   def purchase
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
+    binding.pry
     begin
       @customer = Payjp::Customer.retrieve("cus_4645fa1ce36409e3db5543e179e8")
       

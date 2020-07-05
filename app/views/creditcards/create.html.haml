@@ -3,7 +3,7 @@
 
   .new-card-main
     .new-card_main-title
-    新規登録
+    新規登録1
     .new-card_main-form
       %form{action:"/creditcards",method:"POST",name:'test'}
         #number-form.payjs-outer
@@ -11,8 +11,8 @@
         #cvc-form.payjs-outer
         %input{type:"text",name:"name",placeholder:"YAMADA TAROU",style:"ime-mode: disabled;"}
         %input{type:"hidden", name:"authenticity_token",value:form_authenticity_token}
-        %input{type:"hidden",name:"token",id:"token",value:""}
-        %text_field{type:"text",name:"card_token",id:"error"}
+        %text{type:"text",name:"card_token",id:"token2",value:""}
+        %input{type:"submit",value:"test-content"}
         %input{type:"button",onclick:"onSubmit2(event)"}
 
   :javascript
@@ -29,10 +29,12 @@
     function onSubmit2(event) {
       payjp.createToken(numberElement)
       .then((r) => {
+      document.querySelector('#token2').innerText = r.error ? r.error.message : r.id
+      debugger;
         if(r.error){
-          document.querySelector('#error').innerText = r.error.message;
+          document.querySelector('#token2').innerText = r.error.message;
         }else{
-          document.querySelector('#token').value = r.id;
+          document.querySelector('#token2').value = r.id;
           document.test.submit();
         }
       })
