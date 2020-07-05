@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :brand
   belongs_to :prefecture
   has_many :itemimages, dependent: :destroy
+  accepts_nested_attributes_for :itemimages, allow_destroy: true
 
   with_options presence: true do
     validates :itemimages, presence: true, length: { in: 1..10 }
