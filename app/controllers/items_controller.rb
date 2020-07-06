@@ -9,11 +9,12 @@ class ItemsController < ApplicationController
   end
 
   def confirm
+    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
 
     # ログイン機能実装後以下を使用
     # unless user_signed_in? redirect_to login_path
     # @user = current_user
-    @user = User.where(id:"2").first
+    @user = User.where(id:"1").first
     @item = Item.find(params[:id])
     # サインイン情報取得可能になった後以下を代わりに使用
     # if current_user.creditcards.present? then
@@ -25,7 +26,9 @@ class ItemsController < ApplicationController
       redirect_to new_creditcard_path  
     end
 
-    if @item.closed_time.present? then redirect_to :back
+    if @item.closed_time.present? then 
+      redirect_to root_path
+    end
   end
 
   def purchase
@@ -34,6 +37,11 @@ class ItemsController < ApplicationController
     @user = User.where(id:"2").first
     # current_user使用できるようになったら以下に切り替え
     # @user = current_user.id
+    # unless user_signed_in? redirect_to login_path
+    if @item.closed_time.present? then
+      redirect_to root_path
+      return
+    end
     
     begin
       @charge = Payjp::Charge.create(

@@ -41,8 +41,18 @@ class CreditcardsController < ApplicationController
 
   end
   
-  def delete
-    
+  def destroy
+    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
+    @card = Creditcard.find(params[:id])
+    @customer = Payjp::Customer.retrieve(@card.payjp_customer_id)
+
+    if @customer[:data][:count] = 1 then
+      @customer.delete
+    else
+      @customer.card.retrieve(@card.payjp_card_id).delete
+    end
+
+    @card.destroy
 
   end
 end
