@@ -16,23 +16,22 @@
       .confirm-main_purchase-creditcards
         %form{action:purchase_item_path,method:"POST",name:"purchase"}
           %input{type:"hidden",name:"payjp_customer_id",value:@customer[:id]}
-        - for i in 0..(@cards[:count]-1) do
-          %input{type:"radio",name:"payjp_card_id",value:@cards[:data][i][:id],required:"true"}
-          .confirm-main_purchase-creditcards_number
-            クレジットカード
-            = i + 1
-            ：
-            **** **** **** 
-            = @cards[:data][i][:last4]
-          .confirm-main_purchase-creditcards_expiration
-            有効期限:
-            = @cards[:data][i][:exp_year]
-            年
-            = @cards[:data][i][:exp_month]
-            月
-        .confirm-main_purchase_btn
-          = form_with url: purchase_item_path do |f|
-            = f.submit
+          %input{type:"hidden",name:"authenticity_token",value:form_authenticity_token}
+          - for i in 0..(@cards[:count]-1) do
+            %input{type:"radio",name:"payjp_card_id",value:@cards[:data][i][:id],required:"true"}
+            .confirm-main_purchase-creditcards_number
+              クレジットカード
+              = i + 1
+              ：
+              **** **** **** 
+              = @cards[:data][i][:last4]
+            .confirm-main_purchase-creditcards_expiration
+              有効期限:
+              = @cards[:data][i][:exp_year]
+              年
+              = @cards[:data][i][:exp_month]
+              月
+          %input{type:"submit",value:"購入する"}
     .confirm-main_register-new-card_btn
     
 
