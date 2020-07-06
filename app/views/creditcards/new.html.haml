@@ -3,7 +3,7 @@
 
   .new-card-main
     .new-card_main-title
-    新規登録
+    クレジットカード新規登録
     .new-card_main-form
       %form{action:"/creditcards",method:"POST",name:'test'}
         #number-form.payjs-outer
@@ -12,11 +12,12 @@
         %input{type:"text",name:"name",placeholder:"YAMADA TAROU",style:"ime-mode: disabled;"}
         %input{type:"hidden", name:"authenticity_token",value:form_authenticity_token}
         %input{type:"hidden",name:"token",id:"token",value:""}
+        %input{type:"hidden",name:"user",value:@user}
         %text_field{type:"text",name:"card_token",id:"error"}
-        %input{type:"button",onclick:"onSubmit2(event)"}
+        %input{type:"button",onclick:"onSubmit2(event)",value:"submit"}
 
   :javascript
-    var payjp = Payjp('pk_test_6bbb4903ef4b47c3dbb3f341')
+    var payjp = Payjp(Rails.application.credentials[:PAYJP_PUBLIC_KEY])
     var elements4 = payjp.elements()
   
     var numberElement = elements4.create('cardNumber')

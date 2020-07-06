@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_033549) do
+ActiveRecord::Schema.define(version: 2020_07_05_134738) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_033549) do
 
   create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "payjp_custumer_id", null: false
+    t.string "payjp_customer_id", null: false
     t.string "payjp_card_id", null: false
     t.index ["user_id"], name: "index_creditcards_on_user_id"
   end
