@@ -12,6 +12,7 @@ class CreditcardsController < ApplicationController
   def create
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
     # サインイン情報取得可能になった後以下を代わりに使用
+    # if current_user.creditcards.present? then
     # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
     if User.find(id='2').creditcards.present? then
       @customer = Payjp::Customer.retrieve(User.find(id="1").creditcards.first.payjp_customer_id)

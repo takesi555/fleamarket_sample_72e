@@ -3,9 +3,9 @@
 
   .new-card-main
     .new-card_main-title
-    クレジットカード新規登録
+      クレジットカード新規登録
     .new-card_main-form
-      %form{action:"/creditcards",method:"POST",name:'test'}
+      %form{action:"/creditcards",method:"POST",name:"new_creditcard"}
         #number-form.payjs-outer
         #expiry-form.payjs-outer
         #cvc-form.payjs-outer
@@ -17,7 +17,7 @@
         %input{type:"button",onclick:"onSubmit2(event)",value:"submit"}
 
   :javascript
-    var payjp = Payjp(Rails.application.credentials[:PAYJP_PUBLIC_KEY])
+    var payjp = Payjp('pk_test_6bbb4903ef4b47c3dbb3f341')
     var elements4 = payjp.elements()
   
     var numberElement = elements4.create('cardNumber')
@@ -34,7 +34,7 @@
           document.querySelector('#error').innerText = r.error.message;
         }else{
           document.querySelector('#token').value = r.id;
-          document.test.submit();
+          document.new_creditcard.submit();
         }
       })
     }
