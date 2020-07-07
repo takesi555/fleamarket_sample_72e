@@ -119,18 +119,6 @@ body{
       color: #333;
       text-align: center;
     }
-    &--right{
-      margin-top: 8px;
-      line-height: 1.5;
-      color: #333;
-      text-align: right;
-
-      &--blue {
-        color: #169ae6;
-        float: right;
-        margin-top: 10px;
-      }
-    } 
   }
 }
 
@@ -219,7 +207,7 @@ body{
     border: #979797 solid 1px;
     color: #333;
   }
-  &--twitter{
+  &--apple{
     display: block;
     width: 100%;
     line-height: 48px;
@@ -231,7 +219,7 @@ body{
     text-align: center;
     border-radius: 4px;
     margin: 16px 0 0;
-    background: #169ae6;
+    background: black;
     color: #fff;
   }
   &--login{
@@ -249,4 +237,56 @@ body{
     color: #fff;
     background-color:red;
   }
+}
+
+.single-footer{
+  width: 520px;
+  height: 220px;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+  & nav{
+    height: 12px;
+  }
+  & ul{
+    width: 456px;
+    height: 12px;
+  }
+  & li{
+    display: inline-block;
+    width: 148px;
+    font-size: 12px;
+  }
+  &__logo{
+    height: 65px;
+    margin: 40px auto 0;
+    display: block;
+    color: #333;
+  }
+}
+
+.login-panel{
+  max-width: none;
+  width: 456px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.login-no-account{
+  padding: 40px 64px;
+  text-align: center;
+}
+
+.login-form-inner{
+  padding: 32px 64px;
+  border-top: 1px solid #eee;
+}
+
+.login-form-inner:first-of-type{
+  padding: 24px 64px 32px;
+  border: 0;
 }

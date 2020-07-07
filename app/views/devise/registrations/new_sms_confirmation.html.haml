@@ -1,0 +1,31 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to "#" do
+        = image_tag("logo.png",size: "189x49",class: "image")
+    -# %nav.single-header__progress
+    -#   %ol
+    -#     %li.single-header__progress__text--active{ id: "first" }
+    -#       会員情報
+    -#       .single-header__progress__round--red
+    -#     %li.single-header__progress__text
+    -#       電話認証
+    -#       .single-header__progress__round       
+    -#     %li.single-header__progress__text{ id: "end" }
+    -#       完了
+    -#       .single-header__progress__round
+
+  .single-main
+    %h2.single-main__head 電話番号の確認
+    .single-main__form
+      .single-main__content
+        .form-group
+          = f.label :携帯電話の番号
+          = f.text_field :tel, {placeholder: "携帯番号の番号を入力",class:'form-group__input'}
+          %p.form-group__info 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行います。
+        .form-group
+          %p.form-group__text--center
+          = f.submit 'SMSを送信する', class: "btn-default btn-red", url: "#"
+            %p.form-group__info ※電話番号は本人確認や不正利用防止のために利用します。他にユーザーに公開されることはありません。
+
+  = render "devise/registrations/registration_footer"

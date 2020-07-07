@@ -3,7 +3,7 @@
     %h1.single-header__logo--center
       = link_to "#" do
         = image_tag("logo.png",size: "189x49",class: "image")
-  %main.single-main-login
+  .single-main
     %section.login-panel
       .login-no-account
         %p アカウントをお持ちでない方はこちら
@@ -18,10 +18,10 @@
           %i.fab.fa-google
           %span<>
           Googleでログイン
-        = link_to "#", method: :post, class: "btn-def--twitter" do
+        = link_to "#", method: :post, class: "btn-def--apple" do
           %i.fab.fa-twitter
           %span<>
-          Twitterでログイン               
+          Appleでログイン               
       .login-form-inner
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .form-group
@@ -30,4 +30,4 @@
             = f.password_field :password,{autocomplete: "current-password",placeholder: "パスワード",class:'form-group__input',id:"password"}
           .form-group
             = f.submit 'ログイン', class: "btn-default btn-red", url: "root_path"
-  -# = render "/registration/registration_footer"
+  = render "devise/registrations/registration_footer"

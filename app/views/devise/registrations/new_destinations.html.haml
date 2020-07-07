@@ -1,0 +1,46 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to "#" do
+        = image_tag("logo.png",size: "189x49",class: "image")
+    -# %nav.single-header__progress
+    -#   %ol
+    -#     %li.single-header__progress__text--active{ id: "first" }
+    -#       会員情報
+    -#       .single-header__progress__round--red
+    -#     %li.single-header__progress__text
+    -#       電話認証
+    -#       .single-header__progress__round       
+    -#     %li.single-header__progress__text{ id: "end" }
+    -#       完了
+    -#       .single-header__progress__round
+
+  .single-main
+    %h2.single-main__head 住所入力
+    .single-main__form
+      .single-main__content
+        =form_for(@destination, url: destination_path, method: :post) do |f|
+          -# =render "devise/shared/error_messages", resource: @address
+          .form-group
+            = f.label :郵便番号
+            %span.form-group__require 必須
+            = f.text_field :postal_code,{autofocus: true, placeholder: "例）123-4567", class: 'form-group__input'}
+          .form-group
+            = f.label :都道府県
+            %span.form-group__require 必須
+            = f.select :prefecture, Address.prefectures.keys, {}, {class: 'form-group__input'}
+          .form-group
+            = f.label :市町村
+            %span.form-group__require 必須
+            = f.text_field :city, autofocus: true, placeholder: "例）札幌市", class: 'form-group__input'
+          .form-group
+            = f.label :番地
+            %span.form-group__require 必須
+            = f.text_field :address, autofocus: true, placeholder: "例）青葉1-1-1", class: 'form-group__input'
+          .form-group
+            = f.label :建物名
+            %span.form-group__optional 任意
+            = f.text_field :apartment, autofocus: true, placeholder: "例）柳ビル103", class: 'form-group__input'
+          .form-group
+            = f.submit '次へ', class: "btn-default btn-red", url: "creditcard_path"
+  = render "registration_footer"
