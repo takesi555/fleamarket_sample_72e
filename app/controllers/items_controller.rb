@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     # ログイン機能実装後以下を使用
     # unless user_signed_in? redirect_to login_path
     # @user = current_user
-    @user = User.where(id:"1").first
+    @user = User.find(1)
     @item = Item.find(params[:id])
     # サインイン情報取得可能になった後以下を代わりに使用
     # if current_user.creditcards.present? then
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def purchase
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
     @item = Item.find(params[:id])
-    @user = User.where(id:"2").first
+    @user = User.find(2)
     # current_user使用できるようになったら以下に切り替え
     # @user = current_user.id
     # unless user_signed_in? redirect_to login_path

@@ -4,14 +4,14 @@ class CreditcardsController < ApplicationController
 
   def new
     
-    @user = User.where(id:"2")
+    @user = User.find(2)
     # ログイン機能実装後以下を使用
     # @user = current_user
   end
 
   def create
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
-    @user = User.where(id:2).first
+    @user = User.find(2)
     # サインイン情報取得可能になった後以下を代わりに使用
     # @user = current_user
     # if current_user.creditcards.present? then
