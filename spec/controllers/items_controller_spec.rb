@@ -31,8 +31,9 @@ describe ItemsController ,type: :controller do
     it "goes to root_path page if the item bought" do
       user = FactoryBot.build(:user,id:"0")
       item2 = FactoryBot.build(:item,closed_time:Time.now)
-      get:confirm,params: {id: item.id}
-      expect(response).to render_template root_path
+      item2.save
+      get:confirm,params: {id: item2.id}
+      expect(response).to redirect_to root_path
     end
 
     it "is collect value in @item" do
@@ -67,7 +68,7 @@ describe ItemsController ,type: :controller do
       item = FactoryBot.build(:item, closed_time:Time.now)
       item.save
       post :purchase, params: {id: item}
-      expect(response).to render_template root_path
+      expect(response).to redirect_to root_path
     end
   end
 end
