@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
         card: params[:payjp_card_id],
         currency: 'jpy',
       )
-      binding.pry
       @item.closed_time = Time.now
       @item.buyer_id = @user.id
       @item.save
