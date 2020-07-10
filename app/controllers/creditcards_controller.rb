@@ -1,19 +1,16 @@
 class CreditcardsController < ApplicationController
   require 'payjp'
     # if not user_signedin? then redirect_to login_path
+  before_action -> {
+    set_payjp_api
+    set_user
+  } ,only: [:new,:create,:destroy]
 
   def new
-    
-    @user = User.find(2)
-    # ログイン機能実装後以下を使用
-    # @user = current_user
   end
 
   def create
-    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
-    @user = User.find(2)
     # サインイン情報取得可能になった後以下を代わりに使用
-    # @user = current_user
     # if current_user.creditcards.present? then
     # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
     if @user.creditcards.present? then
@@ -42,7 +39,6 @@ class CreditcardsController < ApplicationController
   end
   
   def destroy
-    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
     @card = Creditcard.find(params[:id])
     @customer = Payjp::Customer.retrieve(@card.payjp_custumer_id)
 
@@ -54,5 +50,16 @@ class CreditcardsController < ApplicationController
 
     @card.destroy
 
+  end
+
+  private
+  def set_payjp_api
+    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
+  end
+
+  def set_user
+    # ログイン機能実装後以下を使用
+    # @user = current_user
+    @user = User.find(1)
   end
 end

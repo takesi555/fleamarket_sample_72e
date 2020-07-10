@@ -1,4 +1,9 @@
 class ItemsController < ApplicationController
+  before_action -> {
+    set_payjp_api
+    set_user
+    set_item
+  },only: [:confirm,:purchase]
   def new
     @item = Item.new
   end
@@ -12,6 +17,7 @@ class ItemsController < ApplicationController
     # unless user_signed_in? redirect_to login_path
     # if current_user.creditcards.present? then
     # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
+    binding.pry
     if @user.creditcards.present? then
       @customer = Payjp::Customer.retrieve(@user.creditcards.first.payjp_custumer_id)
       @cards = @customer.cards
@@ -33,7 +39,6 @@ class ItemsController < ApplicationController
     end
     
     begin
-      binding.pry
       @charge = Payjp::Charge.create(
         amount: @item.price,
         customer: params[:payjp_customer_id],
@@ -52,7 +57,11 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    begin
+      @item = Item.find(params[:id])
+    rescue
+      redirect_to root_path
+    end
   end
   def set_user
     # current_user使用できるようになったら以下に切り替え
