@@ -1,11 +1,4 @@
 class ItemsController < ApplicationController
-  require 'payjp'
-  before_action -> {
-    set_payjp_api
-    set_item
-    set_user
-  } ,only: [:confirm,:purchase]
-
   def new
     @item = Item.new
   end
