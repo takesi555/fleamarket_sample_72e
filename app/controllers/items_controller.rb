@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     # if current_user.creditcards.present? then
     # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
     if @user.creditcards.present? then
-      @customer = Payjp::Customer.retrieve(@user.creditcards.first.payjp_customer_id)
+      @customer = Payjp::Customer.retrieve(@user.creditcards.first.payjp_custumer_id)
       @cards = @customer.cards
     else
       redirect_to new_creditcard_path  
@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     end
     
     begin
+      binding.pry
       @charge = Payjp::Charge.create(
         amount: @item.price,
         customer: params[:payjp_customer_id],
@@ -49,6 +50,7 @@ class ItemsController < ApplicationController
       @item.closed_time = Time.now
       @item.buyer_id = @user.id
       @item.save
+      redirect_to root_path
     rescue => error
       p error
       redirect_to confirm_item_path
