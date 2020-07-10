@@ -1,8 +1,5 @@
 {
   "name": "fleamarket_sample_72e",
   "private": true,
-  "dependencies": {
-    "request": "^2.88.2",
-    "require": "^2.4.20"
-  }
+  "dependencies": {}
 }
