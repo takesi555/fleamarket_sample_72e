@@ -76,6 +76,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-byebug'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -95,3 +96,5 @@ gem 'carrierwave'
 gem 'mini_racer'
 gem 'fog-aws'
 gem 'ancestry'
+gem 'payjp'
+gem 'active_hash'
