@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def confirm
+
     # ログイン機能実装後以下を使用
     # unless user_signed_in? redirect_to login_path
     # if current_user.creditcards.present? then
@@ -53,19 +54,19 @@ class ItemsController < ApplicationController
       redirect_to confirm_item_path
     end
   end
-
   private
-    def set_item
-      @item = Item.find(params[:id])
-    end
-    def set_user
-      # current_user使用できるようになったら以下に切り替え
-      # @user = current_user.id
-      @user = User.find(1)
-    end
-    def set_payjp_api
-      Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
-    end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  def set_user
+    # current_user使用できるようになったら以下に切り替え
+    # @user = current_user.id
+    @user = User.find(1)
+  end
+  def set_payjp_api
+    Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
+  end
   
 
 end
