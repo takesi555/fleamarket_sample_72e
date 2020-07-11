@@ -16,6 +16,7 @@ class Item < ApplicationRecord
     validates :name
     validates :description
     validates :category
+    validates :size
     validates :condition
     validates :postage
     validates :prefecture
