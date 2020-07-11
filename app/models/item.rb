@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  belongs_to :brand
+  belongs_to :brand, optional: true
   belongs_to :prefecture
   has_many :itemimages, dependent: :destroy
   accepts_nested_attributes_for :itemimages, allow_destroy: true
