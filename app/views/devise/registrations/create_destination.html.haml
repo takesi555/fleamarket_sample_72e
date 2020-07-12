@@ -24,7 +24,6 @@
           会員登録が完了しました。
         .form-group
           %p.form-group__text--center
-          = f.submit 'フリマアプリをはじめる', class: "btn-default btn-red", url: "#"
+          %button{type:"button",class: "btn-default btn-red",onclick: "location.href='/'"}フリマアプリを始める
 
   = render "devise/registrations/registration_footer"
-

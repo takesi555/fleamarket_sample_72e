@@ -28,3 +28,4 @@
 
 public/uploads/*
 # 画像がGithubにコミットされないように
+.DS_Store
