@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
     # unless user_signed_in? redirect_to login_path
     # if current_user.creditcards.present? then
     # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
-    binding.pry
     if @user.creditcards.present? then
       @customer = Payjp::Customer.retrieve(@user.creditcards.first.payjp_custumer_id)
       @cards = @customer.cards
