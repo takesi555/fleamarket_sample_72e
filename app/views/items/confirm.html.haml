@@ -40,6 +40,8 @@
               年
               = @cards[:data][i][:exp_month]
               月
+            .confirm-main_purchase-creditcards_brand
+              = @cards[:data][i][:brand]
           %input{type:"submit",value:"購入する",class:"confirm-main_purchase-btn-submit"}
           = link_to root_path,class:"confirm-main_purchase-btn-back" do
             もどる
