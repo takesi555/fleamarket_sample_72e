@@ -3,17 +3,6 @@
     %h1.single-header__logo
       = link_to "#" do
         = image_tag("logo.png",size: "189x49",class: "image")
-    -# %nav.single-header__progress
-    -#   %ol
-    -#     %li.single-header__progress__text--active{ id: "first" }
-    -#       会員情報
-    -#       .single-header__progress__round--red
-    -#     %li.single-header__progress__text
-    -#       電話認証
-    -#       .single-header__progress__round       
-    -#     %li.single-header__progress__text{ id: "end" }
-    -#       完了
-    -#       .single-header__progress__round
 
   .single-main
     %h2.single-main__head 会員情報入力
@@ -38,12 +27,6 @@
             = f.label :パスワード再入力
             %span.form-group__require 必須
             = f.password_field :password_confirmation, {autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
-          -# .form-password-revelation-toggle
-            -#   .checkbox-default
-            -#     %input#reveal_password{type: "checkbox",class:"icon-check"}
-            -#     %label{for: "reveal_password"} パスワードを表示する
-            -#   .form-password-revelation-revealed-password-container
-            -#     %span.form-password-revelation-revealed-password
           .form-group
             %label.form-group-text-title 本人確認
             %p.form-group__info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
