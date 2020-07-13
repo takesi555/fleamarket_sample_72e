@@ -1,0 +1,35 @@
+.confirm-main
+  .confirm-main_purchase
+    .confirm-main_item
+      .confirm-main_item-name
+        品名:
+        = @item.name
+      .confirm-main_item-image
+        テスト画像
+      .confirm-main_item-price
+        金額：
+        = @item.price
+        円
+    .confirm-main_purchase_title
+      .confirm-main_purchase_title
+        支払い方法選択
+      .confirm-main_purchase-creditcards
+        %form{action:purchase_item_path,method:"POST",name:"purchase"}
+          %input{type:"hidden",name:"payjp_customer_id",value:@customer[:id]}
+          %input{type:"hidden",name:"authenticity_token",value:form_authenticity_token}
+          - for i in 0..(@cards[:count]-1) do
+            %input{type:"radio",name:"payjp_card_id",value:@cards[:data][i][:id],required:"true"}
+            .confirm-main_purchase-creditcards_number
+              クレジットカード
+              = i + 1
+              ：
+              **** **** **** 
+              = @cards[:data][i][:last4]
+            .confirm-main_purchase-creditcards_expiration
+              有効期限:
+              = @cards[:data][i][:exp_year]
+              年
+              = @cards[:data][i][:exp_month]
+              月
+          %input{type:"submit",value:"購入する"}
+    .confirm-main_register-new-card_btn
