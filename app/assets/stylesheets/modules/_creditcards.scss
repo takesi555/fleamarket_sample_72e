@@ -1,5 +1,93 @@
-.new-card{
-  &_main{
-    
+* {
+  box-sizing: border-box;
+  text-decoration: none; 
+}
+.wrapper{
+  background-color: $backgroundGray;
+  .header {
+    height: 120px;
+    &__logo {
+      text-align: center;
+      line-height: 160px;
+      &--img{
+        display:inline-block;
+        height: 50px;
+        width: 185px;
+      }
+    }
+  }
+  #number-form, #expiry-form, #cvc-form{
+    width:calc(20vw);
+    margin:10px auto;
+    border: 1px solid $backgroundGray;
+  }
+  #error{
+    margin-top: 20px;
+    display: block;
+    color: red;
+  }
+  .new-card{
+    &_main{
+      text-align: center;
+      width:calc(60vw);
+      margin:0 auto;
+      background-color: white;
+      &-title{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-weight: bold;
+        border-bottom: 1px solid $backgroundGray;
+      }
+      &-form{
+        &-name{
+          width:calc(20vw);
+          border: 1px solid $backgroundGray;
+        }
+        &-btn{
+          &-submit{
+            display: block;
+            margin:20px auto;
+
+            width: 40%;
+            height: 40px;
+            color: white;
+            font-weight: bold;
+            background-color: red;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          &-back{
+            display: block;
+            color: lightskyblue;
+            text-decoration: none;
+            font-size: small;
+            text-align: center;
+            margin-top: 20px;
+            padding-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+  .footer{
+    height: 180px;
+    padding: 35px 0;
+    font-size: smaller;
+    &__conditions {
+      text-align: center;
+      &--list{
+        display: inline;
+        margin: 5px;
+      }
+    }
+    &__logo {
+      text-align: center;
+      margin-top: 30px;
+      &--img{
+        display:inline-block;
+        height: 30px;
+        width: 120px;
+      }
+    }
   }
 }
