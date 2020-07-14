@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
       )
       @item.closed_time = Time.now
       @item.buyer_id = @user.id
+      @item.destination_id = params[:destination_id]
       @item.save
       redirect_to root_path
     rescue => error
