@@ -1,4 +1,7 @@
 %script{src:'https://js.pay.jp/v2/pay.js'}
+- if flash[:alert]
+  .alert-alert
+    = flash[:alert]
 .new-card_main
 
   .new-card-main
