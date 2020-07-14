@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+
     # current_user使用できるようになったら以下に切り替え
     # unless user_signed_in? redirect_to login_path
     if @item.closed_time.present? then

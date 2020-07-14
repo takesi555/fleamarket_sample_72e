@@ -239,8 +239,45 @@
         }
       }
     }
+    &_form{
+      &-destination{
+        &-title{
+        font-weight: bold;
+        }
+        &_radio{
+          margin-top: 20px;
+          float: left;
+        }
+        &-content{
+          &-postcode{
+            margin-top: 15px;
+          }
+          &-prefecture{
+            margin-left: 15px;
+          }
+          &-city{
+            display: inline-block;
+            margin-left: 15px;
+          }
+          &-block_num{
+            display: inline-block;
+          }
+          &-name{
+            &-first{
+              display: inline-block;
+            margin-left: 15px;
+            }
+            &-last{
+              display: inline-block;
+              border-bottom: 1px solid $backgroundGray;
+            }
+          }
+        }
+      }
+    }
     &_purchase{
       &_title{
+        border-top: 1px solid $backgroundGray;
         margin-bottom: 15px;
         font-weight: bold;
       }
@@ -248,11 +285,9 @@
         &_radio{
           margin-top: 20px;
           display: inline-block;
-
         }
         &_number{
           display: inline-block;
-
         }
         &_expiration{
         }
