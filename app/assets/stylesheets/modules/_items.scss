@@ -194,7 +194,7 @@
     }
   }
   .confirm-main{
-    width: calc(60vw);
+    width: calc(40vw);
     margin: 0 auto;
     background-color: white;
     .caution{
@@ -245,6 +245,7 @@
         font-weight: bold;
         }
         &_radio{
+          margin-right: 5px;
           margin-top: 20px;
           float: left;
         }
@@ -253,11 +254,11 @@
             margin-top: 15px;
           }
           &-prefecture{
-            margin-left: 15px;
+            margin-left: 18px;
           }
           &-city{
             display: inline-block;
-            margin-left: 15px;
+            margin-left: 18px;
           }
           &-block_num{
             display: inline-block;
@@ -265,7 +266,7 @@
           &-name{
             &-first{
               display: inline-block;
-            margin-left: 15px;
+            margin-left: 18px;
             }
             &-last{
               display: inline-block;
@@ -277,8 +278,8 @@
     }
     &_purchase{
       &_title{
+        margin-top: 20px;
         border-top: 1px solid $backgroundGray;
-        margin-bottom: 15px;
         font-weight: bold;
       }
       &-creditcards{
@@ -290,8 +291,10 @@
           display: inline-block;
         }
         &_expiration{
+          margin-left: 18px;
         }
         &_brand{
+          margin-left: 18px;
           border-bottom: 1px solid $backgroundGray;
         }
       }
