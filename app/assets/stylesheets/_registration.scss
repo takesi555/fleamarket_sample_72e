@@ -1,0 +1,292 @@
+body{
+  position: relative;
+  height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.single-container{
+  background-color: #F5F5F5;
+  min-width: 768px;
+}
+
+.single-header{
+  width: 768px;
+  margin: 0 auto;
+  &__logo{
+    width: 185px;
+    margin-top: 40px;
+  }
+  &__progress{
+
+  }
+}
+
+.single-main{
+  height: calc(100% - 378px);
+  &__head{
+    width: 700px;
+    padding: 32px;
+    font-size: 22px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #ffffff;
+  }
+  &__form{
+      width: 700px;
+      margin: 0 auto;
+      padding: 32px 32px 64px;
+      background-color: #ffffff;
+      border-top: 1px solid #f5f5f5;
+  }
+  &__content{
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+.form-group{
+  margin-top: 32px;
+  & label{
+    font-weight: 600;
+    display: inline-block;
+    touch-action: manipulation;
+  }
+/* 必須 */ 
+  &__require{
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+  }
+/* 任意 */ 
+  &__optional{
+    background: #CCCCCC;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+  }
+/* 入力フォーム */
+  &__input{
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    box-sizing: border-box;
+    /* ハーフサイズ入力フォーム */
+    &--half {
+      width: calc(50% - 6px);
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+  }
+  &__info{
+    margin-top: 8px;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  &__text{
+    margin-top: 8px;
+    line-height: 1.5;
+    color: #333;
+    &--center{
+      margin-top: 8px;
+      line-height: 1.5;
+      color: #333;
+      text-align: center;
+    }
+  }
+}
+
+.birthday-select-wrap select{
+  width: 76px;
+  height: 48px;
+  font-size: 100%;
+  margin-top: 10px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+}
+
+.btn-red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+
+.btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  text-align: center;
+}
+
+.btn-def {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+  margin: 16px 0 0;
+  &--mail{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    color: #fff;
+    background-color: #ea352d;
+  }
+  &--facebook{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    background: #385185;
+    color: #fff;
+  }
+  &--google{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    background: #fff;
+    border: #979797 solid 1px;
+    color: #333;
+  }
+  &--apple{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    background: black;
+    color: #fff;
+  }
+  &--login{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    color: #fff;
+    background-color:red;
+  }
+}
+
+.single-footer{
+  width: 520px;
+  height: 220px;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+  & nav{
+    height: 12px;
+  }
+  & ul{
+    width: 456px;
+    height: 12px;
+  }
+  & li{
+    display: inline-block;
+    width: 148px;
+    font-size: 12px;
+  }
+  &__logo{
+    height: 65px;
+    margin: 40px auto 0;
+    display: block;
+    color: #333;
+  }
+}
+
+.login-panel{
+  max-width: none;
+  width: 456px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.login-no-account{
+  padding: 40px 64px;
+  text-align: center;
+}
+
+.login-form-inner{
+  padding: 32px 64px;
+  border-top: 1px solid #eee;
+}
+
+.login-form-inner:first-of-type{
+  padding: 24px 64px 32px;
+  border: 0;
+}

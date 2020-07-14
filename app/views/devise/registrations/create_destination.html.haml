@@ -1,0 +1,18 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to "#" do
+        = image_tag("logo.png",size: "189x49",class: "image")
+
+  .single-main
+    %h2.single-main__head 会員登録完了
+    .single-main__form
+      .single-main__content
+        .form-group
+          ありがとうございます。
+          会員登録が完了しました。
+        .form-group
+          %p.form-group__text--center
+          %button{type:"button",class: "btn-default btn-red",onclick: "location.href='/'"}フリマアプリを始める
+
+  = render "devise/registrations/registration_footer"
