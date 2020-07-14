@@ -4,5 +4,12 @@
 - if flash[:alert]
   .alert-alert
     = flash[:alert]
+.main
+  .header
+    -if user_signed_in?
+      = render "header_login"
+    -else
+      = render "header_unlogin"
+
 %h1 トップページ
 = @product
