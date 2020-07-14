@@ -17,7 +17,7 @@
               最大10枚までアップロードできます
             %label.imagebox
               = f.fields_for :itemimages do |i|
-                = i.file_field :image, class:'imagebox__field'
+                = i.file_field :image, class:'imagebox__field', multiple: true, accept: "image/*"
                 .imagebox__info
                   = image_tag "icon_camera.png",class:'imagebox__info--icon'
                   .imagebox__info--comments
