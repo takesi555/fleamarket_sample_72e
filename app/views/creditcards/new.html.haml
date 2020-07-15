@@ -1,12 +1,10 @@
 %script{src:'https://js.pay.jp/v2/pay.js'}
-- if flash[:alert]
-  .alert-alert
-    = flash[:alert]
 .wrapper
   .header
     .header__logo
       = link_to root_path,class: 'header__logo--link' do
         = image_tag "logo.png",class:"header__logo--img"
+  = render 'layouts/alerts'
   .new-card_main
     .new-card-main
       .new-card_main-title

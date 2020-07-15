@@ -30,10 +30,10 @@ class CreditcardsController < ApplicationController
         c.payjp_custumer_id = @customer.id
         c.payjp_card_id = card.id
       end
-      redirect_to root_path
+      redirect_to root_path,notice: "新しいカードを登録しました。"
     rescue => error
       p error
-      redirect_to new_creditcard_path
+      redirect_to new_creditcard_path,alert: "カードの登録に失敗しました。内容をご確認の上、もう一度お試しください。"
     end
 
   end
