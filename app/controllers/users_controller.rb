@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
-  before_action :move_to_index
-  before_action :move_to_mypage, except: :complete
-
   def show
     @user = User.find(params[:id])
-    binding.pry
     @contents = [
+    # コメントアウトしているのは機能拡張の際に使用できる記述を残しておきます。
     # {name:"マイページ",path: "/users/#{@user.id}",verb: "GET"},
     # {name: "お知らせ", path:"#", verb: "GET"},
     # {name: "やることリスト", path:"#", verb: "GET"},

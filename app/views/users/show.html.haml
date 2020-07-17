@@ -9,7 +9,7 @@
           = link_to content[:path],method: content[:verb] do
             = content[:name]
 
-    -# 機能拡張の際に使用できる記述を残しておきます。
+    -# コメントアウトしているのは機能拡張の際に使用できる記述を残しておきます。
     -# .users.show__left-wrapper__furimapay-desc
     -#   %h  フリマペイ
     -#   - @furimapays.each do |f|
@@ -20,15 +20,12 @@
 
     .users.show__left-wrapper__settings-desc
       %h1  設定
-      -#- @settings.each do |s|
+      - @settings.each do |s|
         .users.show__left-wrapper__settings
           .users.show__left-wrapper__settings__setting-title
             = link_to s[:path],method: s[:verb] do
               = s[:name]
               
-      -# .users.show__left-wrapper__settings__destroy
-      -#   = link_to "アカウント削除", user_registration_path, method: :delete, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" }
- 
   .users.show__right-wrapper
     .users.show__right-wrapper__head
       .users.show__right-wrapper__head__icon
