@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index  # indexアクションを定義した
-    @product = "これはコントローラーで定義したインスタンス変数を確認するための文字列です01"
+    @product = "これはコントローラーで定義したインスタンス変数を確認するための文字列です"
   end
 
 end

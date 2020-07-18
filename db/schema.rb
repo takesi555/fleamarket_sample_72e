@@ -35,8 +35,12 @@ ActiveRecord::Schema.define(version: 2020_07_11_070026) do
     t.bigint "prefecture_id", null: false
     t.string "city", null: false
     t.string "block_num", null: false
+    t.string "bill_name"
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.string "tel"
     t.index ["prefecture_id"], name: "index_destinations_on_prefecture_id"
     t.index ["user_id"], name: "index_destinations_on_user_id"
   end
@@ -76,17 +80,21 @@ ActiveRecord::Schema.define(version: 2020_07_11_070026) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.string "password", null: false
+    t.string "encrypted_password", null: false
     t.string "email", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.string "tel", null: false
-    t.date "birth", null: false
+    t.date "birthday", null: false
     t.text "description"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "creditcards", "users"

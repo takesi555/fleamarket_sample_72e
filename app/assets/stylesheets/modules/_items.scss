@@ -220,6 +220,97 @@
       }
     }
   }
+  .confirm-main{
+    width: calc(60vw);
+    margin: 0 auto;
+    background-color: white;
+    .caution{
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+      padding:3px;
+      background-color: red;
+      border-radius: 3px;
+      margin-left: 5px;
+      &--optional{
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        padding:3px;
+        background-color: $borderGray;
+        border-radius: 3px;
+        margin-left: 5px;
+      }
+    }
+    &_title{
+      border-bottom: 1px solid $backgroundGray;
+      text-align: center;
+      font-weight: bold;
+      padding: 20px;
+    }
+    &_item{
+      border-bottom: 1px solid $backgroundGray;
+      text-align: center;
+      padding: 20px;
+      &-image{
+        display: inline-block;
+
+      }
+      &-text{
+        display: inline-block;
+        &-name{
+
+        }
+        &-price{
+
+        }
+      }
+    }
+    &_purchase{
+      &_title{
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      &-creditcards{
+        &_radio{
+          margin-top: 20px;
+          display: inline-block;
+
+        }
+        &_number{
+          display: inline-block;
+
+        }
+        &_expiration{
+        }
+        &_brand{
+          border-bottom: 1px solid $backgroundGray;
+        }
+      }
+      &-btn{
+        &-submit{
+          display: block;
+          margin: 0 auto;
+          width: 40%;
+          height: 40px;
+          color: white;
+          font-weight: bold;
+          background-color: red;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        &-back{
+          display: block;
+          color: lightskyblue;
+          text-decoration: none;
+          font-size: small;
+          text-align: center;
+          margin-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
   .footer{
     height: 180px;
     padding: 35px 0;
