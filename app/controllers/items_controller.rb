@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
     set_user
     set_item
   },only: [:confirm,:purchase]
+
+  before_action :move_to_index
+
   def new
     @item = Item.new
     @item.itemimages.build
@@ -82,5 +85,9 @@ class ItemsController < ApplicationController
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
   end
   
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
+  end
 
 end
