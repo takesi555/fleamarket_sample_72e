@@ -67,5 +67,19 @@ window.addEventListener('load', function() {
         }
       } 
     });
+
+    $('.previewbox').on('click', '.previewbox__group--btn', function() {
+
+      //【新規】追加分（＝DB未保存）の場合、親要素（previewbox__group_unsaved）のインデックスと同一の親要素（プレビュー）、およびinputタグを削除する
+      let targetIndex = $(this).parent().data('index_unsaved');
+      $('.previewbox__group_unsaved[data-index_unsaved='+targetIndex+']').remove();
+      $('.imagebox__field_filled[data-index_unsaved='+targetIndex+']').remove();
+
+      let previewbox_count = $('.previewbox__group').length;
+      if (previewbox_count <= 4) {
+        $('.imagebox').css('visibility', 'visible');
+      }
+
+    });
   });
 });
