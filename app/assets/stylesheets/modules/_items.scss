@@ -60,6 +60,25 @@
             background: $backgroundGray;
             &__field{
               display: none;
+          .imagegroup{
+            display: flex;
+          }
+            .previewbox{
+              display: flex;
+              &__group{
+                height: 160px;
+                width: calc((60vw - 80px - 20px) / 5);
+                background-color: $backgroundGray;
+                margin-right: 5px;
+                &--img{
+                  height: 120px;
+                  width: 100%;
+                  border-bottom: 1px solid $borderGray;
+                }
+                &--btn{
+                  text-align: center;
+                }
+              }
             }
             &__info{
               padding-top: 50px;
