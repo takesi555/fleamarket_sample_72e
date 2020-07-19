@@ -19,10 +19,6 @@ class ItemsController < ApplicationController
     else
       redirect_to new_item_path
     end
-  private
-  def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :brand_id, :condition_id, :postage_id, :prefecture_id, :preparation_id, :price, itemimages_attributes: [:image]).merge(user_id: 1, status: 1)
-  end
   end
 
   def confirm
@@ -67,8 +63,8 @@ class ItemsController < ApplicationController
       redirect_to confirm_item_path
     end
   end
-  private
 
+  private
   def set_item
     begin
       @item = Item.find(params[:id])
@@ -76,15 +72,20 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end
   end
+
   def set_user
     # current_user使用できるようになったら以下に切り替え
     # @user = current_user.id
     @user = User.find(1)
   end
+
   def set_payjp_api
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
   end
   
+  def item_params
+    params.require(:item).permit(:name, :description, :category_id, :size, :brand_id, :condition_id, :postage_id, :prefecture_id, :preparation_id, :price, itemimages_attributes: [:image]).merge(user_id: current_user.id, status: 1)
+  end
 
   def move_to_index
     redirect_to root_path unless user_signed_in?
