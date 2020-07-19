@@ -40,9 +40,9 @@ window.addEventListener('load', function() {
         let previewbox_count = $('.previewbox__group').length;
 
         //input-----------------------------------
-        //【新規】データの入ったinputタグ（未保存）のクラス名をimagebox__group_filled変更して、imageboxの後ろから追加（非表示）
-        $('.imagebox__group').removeClass('imagebox__group').addClass('imagebox__field_filled').appendTo('.imagebox');
-        $('.imagebox__field_filled').hide();
+        //【新規】データの入ったinputタグ（未保存）のクラス名をimagebox__group_unsavedに変更して、imageboxの後ろから追加（非表示）
+        $('.imagebox__group_for_new').removeClass('imagebox__group_for_new').addClass('imagebox__group_unsaved').appendTo('.imagebox');
+        $('.imagebox__group_unsaved').hide();
         //【新規】画像追加用inputタグを追加
         $('.imagebox').prepend(buildImageboxGroup(previewbox_unsaved_count + 1));
         // $('.imagebox').prepend(buildImageboxGroup(previewbox_count + 1, previewbox_unsaved_count + 1));
@@ -55,7 +55,7 @@ window.addEventListener('load', function() {
           $(this).attr('data-index_unsaved', (i+1));
         });
         //【新規】追加分（＝未保存）のinputタグについて、changeの都度１から採番・・・（２）
-        $('.imagebox__field_filled').each(function(i) {
+        $('.imagebox__group_unsaved').each(function(i) {
           $(this).attr('data-index_unsaved', (i+1));
         });
 
@@ -73,7 +73,7 @@ window.addEventListener('load', function() {
       //【新規】追加分（＝DB未保存）の場合、親要素（previewbox__group_unsaved）のインデックスと同一の親要素（プレビュー）、およびinputタグを削除する
       let targetIndex = $(this).parent().data('index_unsaved');
       $('.previewbox__group_unsaved[data-index_unsaved='+targetIndex+']').remove();
-      $('.imagebox__field_filled[data-index_unsaved='+targetIndex+']').remove();
+      $('.imagebox__group_unsaved[data-index_unsaved='+targetIndex+']').remove();
 
       let previewbox_count = $('.previewbox__group').length;
       if (previewbox_count <= 4) {
