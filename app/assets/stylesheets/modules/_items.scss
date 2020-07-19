@@ -69,6 +69,8 @@
                 }
                 &--btn{
                   text-align: center;
+                  line-height: 40px;
+                  cursor: pointer;
                 }
               }
             }
@@ -79,6 +81,7 @@
               height: 160px;
               border: 1px dashed $borderGray;
               background: $backgroundGray;
+              cursor: pointer;
               &__info{
                 margin: auto;
                 &--icon{
