@@ -31,7 +31,7 @@ window.addEventListener('load', function() {
 
       reader.onload = function(e) {
         //preview-------------------------------
-        //【新規】previewbox__group_unsavedを後ろから追加（この時点ではindex等指定していない）
+        //【新規】previewbox__group_unsavedを後ろから追加
         $('.previewbox').append(buildPreviewboxGroup(e.target.result));
 
         //input-----------------------------------
@@ -55,6 +55,7 @@ window.addEventListener('load', function() {
           $(this).children('.imagebox__field').attr('id', 'item_itemimages_attributes_' + (i+1) +'_image');
         });
 
+        //ビューのリセット
         let previewbox_count = $('.previewbox__group').length;
         if (previewbox_count >=1) {
           $('.imagebox__info--comments').css('display', 'none');
@@ -72,6 +73,7 @@ window.addEventListener('load', function() {
       $('.previewbox__group_unsaved[data-index_unsaved='+targetIndex+']').remove();
       $('.imagebox__group_unsaved[data-index_unsaved='+targetIndex+']').remove();
 
+      //ビューのリセット
       let previewbox_count = $('.previewbox__group').length;
       if (previewbox_count <= 4) {
         $('.imagebox').css('visibility', 'visible');
