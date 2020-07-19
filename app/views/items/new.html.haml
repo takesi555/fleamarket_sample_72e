@@ -16,15 +16,16 @@
             .comment
               最大10枚までアップロードできます
             .imagegroup
-              .previewbox
-              %label.imagebox
-                .imagebox__info
-                  = image_tag "icon_camera.png",class:'imagebox__info--icon'
-                  .imagebox__info--comments
-                    ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-                = f.fields_for :itemimages do |i|
+              = f.fields_for :itemimages do |i|
+                .previewbox
+                %label.imagebox
+                  .imagebox__info
+                    = image_tag "icon_camera.png",class:'imagebox__info--icon'
+                    .imagebox__info--comments
+                      ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
                   .imagebox__group_for_new
                     = i.file_field :image, class:'imagebox__field', accept: "image/*"
+
         .content.content__summary
           .content-small.content__summary--item-name
             .title
