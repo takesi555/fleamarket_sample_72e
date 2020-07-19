@@ -23,7 +23,7 @@
                   .imagebox__info--comments
                     ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
                 = f.fields_for :itemimages do |i|
-                  .imagebox__group
+                  .imagebox__group_for_new
                     = i.file_field :image, class:'imagebox__field', accept: "image/*"
         .content.content__summary
           .content-small.content__summary--item-name

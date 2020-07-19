@@ -13,8 +13,8 @@ window.addEventListener('load', function() {
       return html;
     }
 
-    function buildImageboxGroup(num_unsaved) {
-      let html = `<div class="imagebox__group" data-index_unsaved="${num_unsaved}" >
+    function buildImageboxGroup() {
+      let html = `<div class="imagebox__group_for_new" >
                     <input class="imagebox__field" 
                             type="file"
                             accept="image/*"
