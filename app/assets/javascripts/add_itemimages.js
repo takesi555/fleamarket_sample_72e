@@ -33,8 +33,6 @@ window.addEventListener('load', function() {
         //preview-------------------------------
         //【新規】previewbox__group_unsavedを後ろから追加（この時点ではindex等指定していない）
         $('.previewbox').append(buildPreviewboxGroup(e.target.result));
-        
-        let previewbox_unsaved_count = $('.previewbox__group_unsaved').length;
         let previewbox_count = $('.previewbox__group').length;
 
         //input-----------------------------------
@@ -42,8 +40,7 @@ window.addEventListener('load', function() {
         $('.imagebox__group_for_new').removeClass('imagebox__group_for_new').addClass('imagebox__group_unsaved').appendTo('.imagebox');
         $('.imagebox__group_unsaved').hide();
         //【新規】画像追加用inputタグを追加
-        $('.imagebox').prepend(buildImageboxGroup(previewbox_unsaved_count + 1));
-        // $('.imagebox').prepend(buildImageboxGroup(previewbox_count + 1, previewbox_unsaved_count + 1));
+        $('.imagebox').prepend(buildImageboxGroup());
 
         //識別のための管理番号をつけ直す(先頭は１(=i+1))
         
