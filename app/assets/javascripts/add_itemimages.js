@@ -18,8 +18,6 @@ window.addEventListener('load', function() {
                     <input class="imagebox__field" 
                             type="file"
                             accept="image/*"
-                            name="item[itemimages_attributes][${num_unsaved}][image]"
-                            id="item_itemimages_attributes_${num_unsaved}_image">
                     </input>
                   </div>`;
       return html;
@@ -57,6 +55,8 @@ window.addEventListener('load', function() {
         //【新規】追加分（＝未保存）のinputタグについて、changeの都度１から採番・・・（２）
         $('.imagebox__group_unsaved').each(function(i) {
           $(this).attr('data-index_unsaved', (i+1));
+          $(this).children('.imagebox__field').attr('name', "item[itemimages_attributes][" + (i+1) + "][image]");
+          $(this).children('.imagebox__field').attr('id', 'item_itemimages_attributes_' + (i+1) +'_image');
         });
 
         if (previewbox_count >=1) {
