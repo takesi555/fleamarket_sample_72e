@@ -33,7 +33,6 @@ window.addEventListener('load', function() {
         //preview-------------------------------
         //【新規】previewbox__group_unsavedを後ろから追加（この時点ではindex等指定していない）
         $('.previewbox').append(buildPreviewboxGroup(e.target.result));
-        let previewbox_count = $('.previewbox__group').length;
 
         //input-----------------------------------
         //【新規】データの入ったinputタグ（未保存）のクラス名をimagebox__group_unsavedに変更して、imageboxの後ろから追加（非表示）
@@ -56,6 +55,7 @@ window.addEventListener('load', function() {
           $(this).children('.imagebox__field').attr('id', 'item_itemimages_attributes_' + (i+1) +'_image');
         });
 
+        let previewbox_count = $('.previewbox__group').length;
         if (previewbox_count >=1) {
           $('.imagebox__info--comments').css('display', 'none');
         }
