@@ -1,9 +1,1 @@
-.main
-  .header
-    -if user_signed_in?
-      = render "header_login"
-    -else
-      = render "header_unlogin"
-
-%h1 トップページ
-= @product
+= render 'users/show'
