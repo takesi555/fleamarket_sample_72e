@@ -8,7 +8,9 @@
 require 'csv'
 
 CSV.foreach('db/prefectures.csv',headers: true) do |row|
-  Prefecture.create(
-    name: row['name'],
-  )
+  if Prefecture.where(name: row['name']).blank? then
+    Prefecture.create(
+      name: row['name'],
+    )
+  end
 end 
