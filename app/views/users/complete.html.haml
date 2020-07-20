@@ -1,0 +1,13 @@
+.users-complete
+  .users-complete__wrapper
+    .users-complete__wrapper__nav
+      ユーザー登録が完了しました。
+    .users-complete__wrapper__links
+      .users-complete__wrapper__links__newcard
+        .users-complete__wrapper__links__newcard__button
+          = link_to "クレジットカード登録（任意）", new_credit_card_path
+        .users-complete__wrapper__links__newcard__desc
+          %p ※カードはご購入時に必要です。
+      .users-complete__wrapper__links__mypage
+        .users-complete__wrapper__links__mypage__button
+          = link_to "マイページ", user_path(current_user)
