@@ -1,8 +1,9 @@
-@import "modules/reset";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "modules/header";
-@import "modules/footer";
-@import "modules/users.new";
-@import "modules/users.complete";
-@import "modules/users.show";
+ @import "registration";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ @import "reset";
+ @import "./config/colors";
+
+ @import "./modules/items";
+ @import "./modules/creditcards";
