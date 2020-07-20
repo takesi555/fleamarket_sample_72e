@@ -1,0 +1,155 @@
+.users-new{
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  a{
+    display: none
+  }
+  &__wrapper{
+    width: 700px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    &__nav{
+      font-size: 18px;
+      text-align: center;
+      padding: 16px;
+      font-weight: bold;
+      border-bottom: solid 1px;
+      border-color: whitesmoke;  
+    }
+    &__form{
+      #error_explanation{
+        margin-bottom: 10px;
+        ul{
+          li{
+          }
+        }
+      }
+      &__set{
+        font-size: 14px;
+        width: 343px;
+        height: auto;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+        &__name-desc{
+        }
+        &__fullname{
+          display: flex;
+          justify-content: space-between;
+          #ship_address_last_name{
+            width: 170px;
+          }
+          #ship_address_first_name{
+            width: 170px;
+          }
+          &__last_name{
+            #user_last_name{
+              width: 165px;
+            }
+          }
+          &__first_name{
+            #user_first_name{
+              width: 165px;
+            }
+          }
+        }
+        &__ruby-name-desc{
+        }
+        &__ruby-fullname{
+          display: flex;
+          justify-content: space-between;
+
+          &__ruby_last_name{
+            #ship_address_ruby_last_name{
+              width: 170px;
+            }
+          }
+          &__ruby_first_name{
+            #ship_address_ruby_first_name{
+              width: 170px;
+            }
+          }
+        }
+        input{
+          margin-bottom: 27px;
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 15px 0px 15px 0px;
+          display: block;
+        }
+        span{
+          background-color: red;
+          color: white;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          width: 32px;
+          height: 19px;
+        }
+        &__desc-safety{
+          font-size: 14px;
+          width: 343px;
+          height: auto;
+          margin-right: auto;
+          margin-left: auto;
+          margin-bottom: 38px;
+          margin-top: 55px;
+          h{
+            font-weight: bold;
+          }
+        }
+        &__name{
+          display: flex;
+          justify-content: space-between;
+          input{
+            width: 165px;
+          }
+          label{
+            display: none;
+          }
+        }
+        &__ruby-name{
+          display: flex;
+          justify-content: space-between;
+          input{
+            width: 165px;
+          }
+          label{
+            display: none;
+          }
+        }
+        &__actions{
+          input{
+            height: 55px;
+            display: inherit;
+            display: inline-block;
+            background-color: #3CCACE;
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    #user_remember_me{
+      display: none;
+    }
+    .actions--red{
+      margin-top: 30px;
+      input{
+        background-color: red;
+        border: none;
+        color: white;
+      }
+    }
+  }
+}
