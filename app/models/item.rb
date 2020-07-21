@@ -21,7 +21,7 @@ class Item < ApplicationRecord
     validates :postage
     validates :prefecture
     validates :preparation
-    validates :price
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than: 10000000}
     validates :user
     validates :status
   end
