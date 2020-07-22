@@ -8,4 +8,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    -# フラッシュメッセージを使用する場合、コメントアウトを外す。
+    -# .notification
+    -#   - flash.each do |key, value|
+    -#     = content_tag :div, value, class: key
     = yield
