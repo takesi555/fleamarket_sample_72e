@@ -7,6 +7,13 @@
     .contents
       = form_for (@item) do |f|
 
+        - if @item.errors.any?
+          .content.content__errors
+            %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+            %ul
+              - @item.errors.full_messages.each do |message|
+                %li= message
+
         .content.content__images
           .content-small.content__images--images
             .title
