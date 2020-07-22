@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation
   
   with_options presence: true do
-    validates :itemimages, presence: true, length: { in: 1..10 }
+    validates :itemimages, presence: true
     validates :name
     validates :description
     validates :category

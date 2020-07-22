@@ -21,7 +21,7 @@
               %span.caution
                 必須
             .comment
-              最大10枚までアップロードできます
+              最大5枚までアップロードできます
             .imagegroup
               = f.fields_for :itemimages do |i|
                 .previewbox
@@ -29,7 +29,7 @@
                   .imagebox__info
                     = image_tag "icon_camera.png",class:'imagebox__info--icon'
                     .imagebox__info--comments
-                      ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                      <br>クリックしてファイルをアップロード
                   .imagebox__group_for_new
                     = i.file_field :image, class:'imagebox__field', accept: "image/*"
 
