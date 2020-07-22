@@ -23,7 +23,7 @@
             .comment
               最大5枚までアップロードできます
             .imagegroup
-              = f.fields_for :itemimages do |i|
+              = f.fields_for :itemimages, @item.itemimages.build do |i|
                 .previewbox
                 %label.imagebox
                   .imagebox__info
