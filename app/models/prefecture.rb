@@ -1,3 +1,4 @@
 class Prefecture < ApplicationRecord
-  has_many:destinations
+  has_many :items
+  has_many :destinations
 end
