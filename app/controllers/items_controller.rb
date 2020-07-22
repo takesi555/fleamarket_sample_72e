@@ -16,6 +16,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
+      # フラッシュメッセージを利用する場合は、以下に置き換え
+      # redirect_to root_path, notice: '商品を出品しました'
     else
       render :new
       @item = Item.new(item_params)
