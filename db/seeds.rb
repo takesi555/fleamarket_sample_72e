@@ -27,6 +27,7 @@ end
 CSV.foreach('db/items.csv',headers: true) do |row|
   if Item.where(created_at: row['created_at']).blank? then
     Item.create(
+      id:             row['id'],
       name:           row['name'],
       price:          row['price'],
       description:    row['description'],
@@ -36,7 +37,7 @@ CSV.foreach('db/items.csv',headers: true) do |row|
       category_id:    row['category_id'],
       brand_id:       row['brand_id'],
       size:           row['size'],
-      condition:   row['condition_id'],
+      condition:      row['condition_id'],
       preparation:    row['preparation_id'],
       postage:        row['postage_id'],
       user_id:        row['user_id'],
@@ -51,6 +52,7 @@ end
 CSV.foreach('db/itemimages.csv',headers: true) do |row|
   if Itemimage.where(image: row['image'],item_id: row['item_id']).blank? then
     Itemimage.create(
+      id:       row['id'],
       item_id:  row['item_id'],
       image:    row['image']
     )
@@ -60,6 +62,7 @@ end
 CSV.foreach('db/prefectures.csv',headers: true) do |row|
   if Prefecture.where(name: row['name']).blank? then
     Prefecture.create(
+      id: row['id'],
       name: row['name'],
     )
   end
