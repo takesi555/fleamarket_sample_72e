@@ -52,29 +52,6 @@
           .comment{
             margin-bottom: 15px;
           }
-          .imagebox{
-            display: block;
-            width: 100%;
-            height: 160px;
-            border: 1px dashed $borderGray;
-            background: $backgroundGray;
-            &__field{
-              display: none;
-            }
-            &__info{
-              padding-top: 50px;
-              &--icon{
-                display: block;
-                margin: 0 auto;
-                width: 30px;
-                height: 30px;
-              }
-              &--comments{
-                font-size: small;
-                text-align: center;
-              }
-            }
-          }
           .field{
             width: 100%;
             height: 40px;
@@ -134,6 +111,59 @@
             }
           }
         }
+            .imagegroup{
+              display: flex;
+              .previewbox{
+                display: flex;
+                &__group{
+                  height: 160px;
+                  width: calc((60vw - 80px - 20px) / 5);
+                  background-color: $backgroundGray;
+                  margin-right: 5px;
+                  &--img{
+                    height: 120px;
+                    width: 100%;
+                    border-bottom: 1px solid $borderGray;
+                  }
+                  &--btn{
+                    text-align: center;
+                    line-height: 40px;
+                    cursor: pointer;
+                  }
+                }
+              }
+              .imagebox{
+                display: block;
+                display: flex;
+                width: 100%;
+                height: 160px;
+                border: 1px dashed $borderGray;
+                background: $backgroundGray;
+                cursor: pointer;
+                &__info{
+                  margin: auto;
+                  &--icon{
+                    margin: auto;
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                  }
+                  &--comments{
+                    font-size: small;
+                    text-align: center;
+                  }
+                }
+                &__group_for_new{
+                  width: 100%;
+                  display: flex;
+                  justify-content: center;
+                  display: none;
+                  .imagebox__field{
+                    display: none;
+                  }
+                }
+              }
+            }      
         .content__detail{
           &--title{
             color: $contentTitleGray;

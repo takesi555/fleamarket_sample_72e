@@ -7,6 +7,13 @@
     .contents
       = form_for (@item) do |f|
 
+        - if @item.errors.any?
+          .content.content__errors
+            %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+            %ul
+              - @item.errors.full_messages.each do |message|
+                %li= message
+
         .content.content__images
           .content-small.content__images--images
             .title
@@ -14,15 +21,18 @@
               %span.caution
                 必須
             .comment
-              最大10枚までアップロードできます
-            %label.imagebox
-              = f.fields_for :itemimages do |i|
-                = i.file_field :image, class:'imagebox__field'
-                .imagebox__info
-                  = image_tag "icon_camera.png",class:'imagebox__info--icon'
-                  .imagebox__info--comments
-                    ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-                  
+              最大5枚までアップロードできます
+            .imagegroup
+              = f.fields_for :itemimages, @item.itemimages.build do |i|
+                .previewbox
+                %label.imagebox
+                  .imagebox__info
+                    = image_tag "icon_camera.png",class:'imagebox__info--icon'
+                    .imagebox__info--comments
+                      <br>クリックしてファイルをアップロード
+                  .imagebox__group_for_new
+                    = i.file_field :image, class:'imagebox__field', accept: "image/*"
+
         .content.content__summary
           .content-small.content__summary--item-name
             .title
@@ -70,7 +80,7 @@
               %span.caution
                 必須
             .selector
-              = f.select :condition, [ ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6] ], {prompt: "選択してください"}, class: 'selector__box'
+              = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, class: 'selector__box'
               %i.fas.fa-angle-down
             
         .content.content__delivery
@@ -82,7 +92,7 @@
               %span.caution
                 必須
             .selector
-              = f.select :postage, [ ["送料込み（出品者負担）",1], ["着払い（購入者負担）", 2] ], {prompt: "選択してください"}, class: 'selector__box'
+              = f.select :postage_id, [ ["送料込み（出品者負担）",1], ["着払い（購入者負担）", 2] ], {prompt: "選択してください"}, class: 'selector__box'
               %i.fas.fa-angle-down
           .content-small.content__delivery--prefecture
             .title
@@ -98,7 +108,7 @@
               %span.caution
                 必須
             .selector
-              = f.select :preparation, [ ["１〜２日で発送",1], ["２〜３日で発送", 2], ["４〜７日で発送", 3 ] ], {prompt: "選択してください"}, class: 'selector__box'
+              = f.select :preparation_id, [ ["１〜２日で発送",1], ["２〜３日で発送", 2], ["４〜７日で発送", 3 ] ], {prompt: "選択してください"}, class: 'selector__box'
               %i.fas.fa-angle-down
             
         .content.content__price
@@ -116,12 +126,12 @@
           .content-small.content__price--fee
             .title
               販売手数料（10％）
-            .calc_result
+            .calc_result--fee
               ー
           .content-small.content__price--profit
             .title
               販売利益
-            .calc_result
+            .calc_result--profit
               ー
           .content-small.content__price--buttons
             = f.submit '出品する', class: 'btn btn--submit'
