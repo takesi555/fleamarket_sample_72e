@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'destinations', to: 'users/registrations#new_destination'
     post 'destinations', to: 'users/registrations#create_destination'
   end
+  
   root to: 'products#index'
   resources :users, only: [:show]
   resources :registration, only: [:index]
