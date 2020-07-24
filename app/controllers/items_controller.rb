@@ -4,11 +4,25 @@ class ItemsController < ApplicationController
     set_user
     set_item
   },only: [:confirm,:purchase]
+
+  before_action :move_to_index
+
   def new
     @item = Item.new
+    @item.itemimages.build
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+      # フラッシュメッセージを利用する場合は、以下に置き換え
+      # redirect_to root_path, notice: '商品を出品しました'
+    else
+      render :new
+      @item = Item.new(item_params)
+      @item.itemimages.build
+    end
   end
 
   def confirm
@@ -55,8 +69,8 @@ class ItemsController < ApplicationController
       redirect_to confirm_item_path, alert: "購入できませんでした。再度お試しください"
     end
   end
-  private
 
+  private
   def set_item
     begin
       @item = Item.find(params[:id])
@@ -64,14 +78,23 @@ class ItemsController < ApplicationController
       redirect_to root_path, "購入する商品が見つかりませんでした"
     end
   end
+
   def set_user
     # current_user使用できるようになったら以下に切り替え
     # @user = current_user.id
     @user = User.find(1)
   end
+
   def set_payjp_api
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
   end
   
+  def item_params
+    params.require(:item).permit(:name, :description, :category_id, :size, :brand_id, :condition_id, :postage_id, :prefecture_id, :preparation_id, :price, itemimages_attributes: [:image]).merge(user_id: current_user.id, status: 1)
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
+  end
 
 end
