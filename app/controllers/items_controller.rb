@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_login_path
+  before_action :authenticate_user!
   before_action -> {
     set_payjp_api
     set_item
@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
   def confirm
 
-    if @current_user.id == @item.user.id then 
+    if current_user.id == @item.user.id then 
       redirect_to root_path, alert: "自分が出品した商品は購入できません"
     end
 

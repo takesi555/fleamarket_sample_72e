@@ -1,6 +1,6 @@
 class CreditcardsController < ApplicationController
   require 'payjp'
-  before_action :move_to_login_path
+  before_action :authenticate_user!
   before_action -> {
     set_payjp_api
   } ,only: [:new,:create,:destroy]
@@ -53,7 +53,4 @@ class CreditcardsController < ApplicationController
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
   end
 
-  def move_to_login_path
-    redirect_to new_user_session_path unless user_signed_in?
-  end
 end
