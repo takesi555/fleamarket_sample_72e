@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
 
   def confirm
 
+    if @user.id == @item.user.id then 
+      redirect_to root_path, alert: "自分が出品した商品は購入できません"
+    end
+
     if current_user.creditcards.present? then
       @customer = Payjp::Customer.retrieve(current_user.creditcards.first.payjp_custumer_id)
       @cards = @customer.cards
