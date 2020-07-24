@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 2020_07_14_150232) do
     t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.string "size", null: false
-    t.integer "condition", null: false
-    t.integer "preparation", null: false
-    t.integer "postage", null: false
+    t.integer "condition_id", null: false
+    t.integer "preparation_id", null: false
+    t.integer "postage_id", null: false
     t.bigint "user_id", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
