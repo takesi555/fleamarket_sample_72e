@@ -17,7 +17,7 @@
           %input{type:"text",name:"name",placeholder:"YAMADA TAROU",style:"ime-mode: disabled;",class:"new-card_main-form-name"}
           %input{type:"hidden", name:"authenticity_token",value:form_authenticity_token}
           %input{type:"hidden",name:"token",id:"token",value:""}
-          %input{type:"hidden",name:"user",value:@user}
+          %input{type:"hidden",name:"user",value:current_user}
           %text_field{type:"text",name:"card_token",id:"error"}
           %input{type:"button",onclick:"onSubmit2(event)",value:"カードを登録する",class:"new-card_main-form-btn-submit"}
           = link_to root_path, class: "new-card_main-form-btn-back" do

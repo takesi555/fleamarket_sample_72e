@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :move_to_login_path
   before_action -> {
     set_payjp_api
-    set_user
     set_item
   },only: [:confirm,:purchase]
 
@@ -27,7 +26,7 @@ class ItemsController < ApplicationController
 
   def confirm
 
-    if @user.id == @item.user.id then 
+    if @current_user.id == @item.user.id then 
       redirect_to root_path, alert: "自分が出品した商品は購入できません"
     end
 
@@ -58,7 +57,7 @@ class ItemsController < ApplicationController
         currency: 'jpy',
       )
       @item.closed_time = Time.now
-      @item.buyer_id = @user.id
+      @item.buyer_id = current_user.id
       @item.destination_id = params[:destination_id]
       @item.save
       redirect_to root_path, notice: "商品は正常に購入されました"
@@ -75,10 +74,6 @@ class ItemsController < ApplicationController
     rescue
       redirect_to root_path, "購入する商品が見つかりませんでした"
     end
-  end
-
-  def set_user
-    @user = current_user
   end
 
   def set_payjp_api

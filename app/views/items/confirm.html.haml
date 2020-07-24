@@ -27,23 +27,23 @@
             配送先選択
             %span.caution
               必須
-        - for i in 0..(@user.destinations.count-1) do
-          %input{type:"radio",name:"destination_id",value:@user.destinations[i].id,required:"true",class:"confirm-main_form-destination_radio"}
+        - for i in 0..(current_user.destinations.count-1) do
+          %input{type:"radio",name:"destination_id",value:current_user.destinations[i].id,required:"true",class:"confirm-main_form-destination_radio"}
           .confirm-main_form-destination-content
             .confirm-main_form-destination-content-postcode
               〒
-              = @user.destinations[i].post_code
+              = current_user.destinations[i].post_code
             .confirm-main_form-destination-content-prefecture
-              = @user.destinations[i].prefecture.name
+              = current_user.destinations[i].prefecture.name
             .confirm-main_form-destination-content-city
-              = @user.destinations[i].city
+              = current_user.destinations[i].city
             .confirm-main_form-destination-content-block_num
-              = @user.destinations[i].block_num
+              = current_user.destinations[i].block_num
             .confirm-main_form-destination-content-name
               .confirm-main_form-destination-content-name-first
-                = @user.destinations[i].last_name
+                = current_user.destinations[i].last_name
               .confirm-main_form-destination-content-name-last
-                = @user.destinations[i].first_name
+                = current_user.destinations[i].first_name
         .confirm-main_purchase
           .confirm-main_purchase_title
             支払い方法選択
