@@ -1,6 +1,6 @@
 class CreditcardsController < ApplicationController
   require 'payjp'
-    # if not user_signedin? then redirect_to login_path
+  before_action :move_to_login_path
   before_action -> {
     set_payjp_api
     set_user
@@ -10,9 +10,6 @@ class CreditcardsController < ApplicationController
   end
 
   def create
-    # サインイン情報取得可能になった後以下を代わりに使用
-    # if current_user.creditcards.present? then
-    # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
     if @user.creditcards.present? then
       @customer = Payjp::Customer.retrieve(@user.creditcards.first.payjp_custumer_id)
     else
@@ -58,8 +55,10 @@ class CreditcardsController < ApplicationController
   end
 
   def set_user
-    # ログイン機能実装後以下を使用
-    # @user = current_user
-    @user = User.find(1)
+    @user = current_user
+  end
+
+  def move_to_login_path
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end

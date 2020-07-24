@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :move_to_login_path
   before_action -> {
     set_payjp_api
     set_user
     set_item
   },only: [:confirm,:purchase]
 
-  before_action :move_to_index
 
   def new
     @item = Item.new
@@ -27,12 +27,8 @@ class ItemsController < ApplicationController
 
   def confirm
 
-    # ログイン機能実装後以下を使用
-    # unless user_signed_in? redirect_to login_path
-    # if current_user.creditcards.present? then
-    # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
-    if @user.creditcards.present? then
-      @customer = Payjp::Customer.retrieve(@user.creditcards.first.payjp_custumer_id)
+    if current_user.creditcards.present? then
+      @customer = Payjp::Customer.retrieve(current_user.creditcards.first.payjp_custumer_id)
       @cards = @customer.cards
     else
       redirect_to new_creditcard_path, alert: "支払い方法を登録してください"
@@ -45,8 +41,6 @@ class ItemsController < ApplicationController
 
   def purchase
 
-    # current_user使用できるようになったら以下に切り替え
-    # unless user_signed_in? redirect_to login_path
     if @item.closed_time.present? then
       redirect_to root_path, alert: "この商品はすでに購入されています"
       return
@@ -80,9 +74,7 @@ class ItemsController < ApplicationController
   end
 
   def set_user
-    # current_user使用できるようになったら以下に切り替え
-    # @user = current_user.id
-    @user = User.find(1)
+    @user = current_user
   end
 
   def set_payjp_api
@@ -95,6 +87,10 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to root_path unless user_signed_in?
+  end
+
+  def move_to_login_path
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end
