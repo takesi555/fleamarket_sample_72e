@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to root_path
       # フラッシュメッセージを利用する場合は、以下に置き換え
