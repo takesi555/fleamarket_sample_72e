@@ -18,6 +18,7 @@ end
 CSV.foreach('db/categories.csv',headers: true) do |row|
   if Category.where(name: row['name']).blank? then
     Category.create(
+      id:       row['id'],
       name:     row['name'],
       ancestry: row['ancestry']
     )

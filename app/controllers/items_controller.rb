@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
 
     if current_user.id == @item.user.id then 
       redirect_to root_path, alert: "自分が出品した商品は購入できません"
+      return
     end
 
     if current_user.creditcards.present? then
