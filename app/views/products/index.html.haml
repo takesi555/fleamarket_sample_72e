@@ -4,6 +4,7 @@
 - if flash[:alert]
   .alert-alert
     = flash[:alert]
+    
 .main
   .header
     -if user_signed_in?
@@ -11,5 +12,140 @@
     -else
       = render "header_unlogin"
 
-%h1 トップページ
-= @product
+  .top-tier
+    .top-tier_text
+      .top-tier__text--large
+        人生を変えるフリマアプリ
+      .top-tier__text--small
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+    %ul.top-tier__link--tag
+      %li.link__apple
+        = link_to image_tag('app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
+      %li.link__google
+        = link_to image_tag('google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+      
+  .middle-tier
+    .middle-tier_subtitle
+      フリマが選ばれる3つの特徴
+    .lists
+      %ul.list
+        .list__pict
+        %span.image
+          = image_tag src="/assets/pict-reason-01.jpg", size: "274x274"
+        .list__text
+          ３分
+          %span
+            ですぐ出品
+        .list__description
+          スマホで入力するだけで簡単に出品できる！
+      %ul.list
+        .list__pict
+        %span.image
+          = image_tag src="/assets/pict-reason-02.jpg", size: "274x274"
+        .list__text
+          シンプル
+          %span
+            で使いやすい
+        .list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %ul.list
+        .list__pict
+        %span.image
+          = image_tag src="/assets/pict-reason-03.jpg", size: "274x274"
+        .list__text
+          業界最安
+          %span
+            手数料
+        .list__description
+          最大3%でお得に出品&購入！
+
+  .lower-tier
+    .image-lower-tier
+      .lower-tier__text
+        会員数日本一位
+      .lower-tier__description
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      %ul.lower-tier__link--tag
+        %li.link__apple
+          = link_to image_tag('app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
+        %li.link__google
+          = link_to image_tag('google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+
+  .top-feature
+    .top-feature_subtitle
+      フリマの特徴
+    .lists
+      %ul.list
+        .list__pict
+        %span.image
+          = image_tag src="/assets/icon-01.png", size: "148x228"
+        .list__text
+          簡単に売り買いできる
+        .list__description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %ul.list
+        .list__pict
+        %span.image
+          = image_tag src="/assets/icon-03.png", size: "148x228"
+        .list__text
+          売上金は即日振込みに対応
+        .list__description
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %ul.list
+        .list__pict
+        %span.image
+          = image_tag src="/assets/icon-04.png", size: "148x228"
+        .list__text
+          様々な支払いに対応
+        .list__description
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+
+
+
+
+
+
+
+
+
+  .pickup-section
+    .pickup-section__header
+      .pickup-section__header--title
+        ピックアップカテゴリー
+      %ul.pickup-section__header--list
+        %li.header__list--logo
+          新規投稿商品
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          新着アイテム
+        .main__title--more
+          もっと見る >
+
+  .pickup-section
+    .pickup-section__header
+      .pickup-section__header--title
+        ピックアップブランド
+      %ul.pickup-section__header--list
+        %li.header__list--logo
+          アーカイバ
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          新着アイテム
+        .main__title--more
+          もっと見る >
+
+
+  = render "bottom"
+
+=render "footer"
