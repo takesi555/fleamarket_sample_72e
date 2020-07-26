@@ -31,10 +31,10 @@
       .users.show__right-wrapper__head__icon
         = image_tag 'icon/mypageicon.png', height: '80', width: '80'
       .users.show__right-wrapper__head__nickname
-        -#= current_user.nickname
         名前
+        = current_user.nickname
       .users.show__right-wrapper__head__products-count
-        -#= "出品数 #{current_user.products.count}"
         出品数
+        = current_user.items.count
 
 = render 'home/footer'
