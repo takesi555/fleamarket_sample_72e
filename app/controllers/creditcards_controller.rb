@@ -1,20 +1,16 @@
 class CreditcardsController < ApplicationController
   require 'payjp'
-    # if not user_signedin? then redirect_to login_path
+  before_action :authenticate_user!
   before_action -> {
     set_payjp_api
-    set_user
   } ,only: [:new,:create,:destroy]
 
   def new
   end
 
   def create
-    # サインイン情報取得可能になった後以下を代わりに使用
-    # if current_user.creditcards.present? then
-    # @customer = Payjp::Customer.retrieve(current_user.credicards.first)
-    if @user.creditcards.present? then
-      @customer = Payjp::Customer.retrieve(@user.creditcards.first.payjp_custumer_id)
+    if current_user.creditcards.present? then
+      @customer = Payjp::Customer.retrieve(current_user.cards.first.payjp_custumer_id)
     else
       @customer = Payjp::Customer.create()
     end
@@ -26,14 +22,14 @@ class CreditcardsController < ApplicationController
       card.name = params[:name]
       card.save
       Creditcard.create do |c|
-        c.user_id = @user.id
+        c.user_id = current_user.id
         c.payjp_custumer_id = @customer.id
         c.payjp_card_id = card.id
       end
-      redirect_to root_path
+      redirect_to root_path,notice: "新しいカードを登録しました。"
     rescue => error
       p error
-      redirect_to new_creditcard_path
+      redirect_to new_creditcard_path,alert: "カードの登録に失敗しました。内容をご確認の上、もう一度お試しください。"
     end
 
   end
@@ -57,9 +53,4 @@ class CreditcardsController < ApplicationController
     Payjp.api_key = Rails.application.credentials[:PAYJP_SECRET_KEY]
   end
 
-  def set_user
-    # ログイン機能実装後以下を使用
-    # @user = current_user
-    @user = User.find(1)
-  end
 end

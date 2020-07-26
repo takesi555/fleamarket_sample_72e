@@ -17,34 +17,57 @@
           金額：
           = @item.price
           円
-    .confirm-main_purchase
-      .confirm-main_purchase_title
-        支払い方法選択
-        %span.caution
-          必須
-      .confirm-main_purchase-creditcards
-        %form{action:purchase_item_path,method:"POST",name:"purchase"}
-          %input{type:"hidden",name:"payjp_customer_id",value:@customer[:id]}
-          %input{type:"hidden",name:"authenticity_token",value:form_authenticity_token}
-          - for i in 0..(@cards[:count]-1) do
-            %input{type:"radio",name:"payjp_card_id",value:@cards[:data][i][:id],required:"true",class:"confirm-main_purchase-creditcards_radio"}
-            .confirm-main_purchase-creditcards_number
-              クレジットカード
-              = i + 1
-              ：
-              **** **** **** 
-              = @cards[:data][i][:last4]
-            .confirm-main_purchase-creditcards_expiration
-              有効期限:
-              = @cards[:data][i][:exp_year]
-              年
-              = @cards[:data][i][:exp_month]
-              月
-            .confirm-main_purchase-creditcards_brand
-              = @cards[:data][i][:brand]
-          %input{type:"submit",value:"購入する",class:"confirm-main_purchase-btn-submit"}
-          = link_to root_path,class:"confirm-main_purchase-btn-back" do
-            もどる
+
+    .confirm-main_form
+      %form{action:purchase_item_path,method:"POST",name:"purchase"}
+        %input{type:"hidden",name:"payjp_customer_id",value:@customer[:id]}
+        %input{type:"hidden",name:"authenticity_token",value:form_authenticity_token}
+        .confirm-main_form-destination
+          .confirm-main_form-destination-title
+            配送先選択
+            %span.caution
+              必須
+        - for i in 0..(current_user.destinations.count-1) do
+          %input{type:"radio",name:"destination_id",value:current_user.destinations[i].id,required:"true",class:"confirm-main_form-destination_radio"}
+          .confirm-main_form-destination-content
+            .confirm-main_form-destination-content-postcode
+              〒
+              = current_user.destinations[i].post_code
+            .confirm-main_form-destination-content-prefecture
+              = current_user.destinations[i].prefecture.name
+            .confirm-main_form-destination-content-city
+              = current_user.destinations[i].city
+            .confirm-main_form-destination-content-block_num
+              = current_user.destinations[i].block_num
+            .confirm-main_form-destination-content-name
+              .confirm-main_form-destination-content-name-first
+                = current_user.destinations[i].last_name
+              .confirm-main_form-destination-content-name-last
+                = current_user.destinations[i].first_name
+        .confirm-main_purchase
+          .confirm-main_purchase_title
+            支払い方法選択
+            %span.caution
+              必須
+        - for i in 0..(@cards[:count]-1) do
+          %input{type:"radio",name:"payjp_card_id",value:@cards[:data][i][:id],required:"true",class:"confirm-main_purchase-creditcards_radio"}
+          .confirm-main_purchase-creditcards_number
+            クレジットカード
+            = i + 1
+            ：
+            **** **** **** 
+            = @cards[:data][i][:last4]
+          .confirm-main_purchase-creditcards_expiration
+            有効期限:
+            = @cards[:data][i][:exp_year]
+            年
+            = @cards[:data][i][:exp_month]
+            月
+          .confirm-main_purchase-creditcards_brand
+            = @cards[:data][i][:brand]
+        %input{type:"submit",value:"購入する",class:"confirm-main_purchase-btn-submit"}
+        = link_to root_path,class:"confirm-main_purchase-btn-back" do
+          もどる
       .confirm-main_register-new-card_btn
   .footer
     %ul.footer__conditions
