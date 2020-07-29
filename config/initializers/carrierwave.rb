@@ -16,7 +16,7 @@ CarrierWave.configure do |config|
     config.fog_directory  = 'fleamarket72e'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fleamarket72'
   else
-    config.storage :file
+    config.strage :file
     config.enable_processing = false if Rails.env.test?
   end
 end
