@@ -25,4 +25,6 @@ class Item < ApplicationRecord
     validates :user
     validates :status
   end
+
+  mount_uploader :itemimage, ImageUploader
 end
