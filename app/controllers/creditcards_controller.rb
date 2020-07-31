@@ -5,12 +5,22 @@ class CreditcardsController < ApplicationController
     set_payjp_api
   } ,only: [:new,:create,:destroy]
 
+  def show
+    if current_user.creditcards.present? then
+      @customer = Payjp::Customer.retrieve(current_user.creditcards.first.payjp_custumer_id)
+      @cards = @customer.cards
+    else
+      redirect_to new_creditcard_path,allert: "支払い方法が登録されていません"
+    end
+
+  end
+
   def new
   end
 
   def create
     if current_user.creditcards.present? then
-      @customer = Payjp::Customer.retrieve(current_user.cards.first.payjp_custumer_id)
+      @customer = Payjp::Customer.retrieve(current_user.creditcards.first.payjp_custumer_id)
     else
       @customer = Payjp::Customer.create()
     end
@@ -26,7 +36,7 @@ class CreditcardsController < ApplicationController
         c.payjp_custumer_id = @customer.id
         c.payjp_card_id = card.id
       end
-      redirect_to root_path,notice: "新しいカードを登録しました。"
+      redirect_to creditcard_path(current_user.id),notice: "新しいカードを登録しました。"
     rescue => error
       p error
       redirect_to new_creditcard_path,alert: "カードの登録に失敗しました。内容をご確認の上、もう一度お試しください。"
@@ -35,16 +45,17 @@ class CreditcardsController < ApplicationController
   end
   
   def destroy
-    @card = Creditcard.find(params[:id])
-    @customer = Payjp::Customer.retrieve(@card.payjp_custumer_id)
+    @card = Creditcard.where(payjp_card_id: params[:payjp_card_id]).first
+    @customer = Payjp::Customer.retrieve(params[:payjp_customer_id])
 
-    if @customer[:data][:count] = 1 then
+    if @customer[:cards][:count] == 1 then
       @customer.delete
     else
-      @customer.card.retrieve(@card.payjp_card_id).delete
+      @customer.cards.retrieve(params[:payjp_card_id]).delete
     end
 
     @card.destroy
+    redirect_to creditcard_path,notice: "正常に削除されました"
 
   end
 
