@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
   resources :users, only: [:show]
   resources :registration, only: [:index]
-  resources :creditcards, only: [:new, :create,:destroy]
+  resources :creditcards, only: [:show, :new, :create, :destroy]
   resources :items ,only: [:new, :create] do
     member do
       get 'confirm'

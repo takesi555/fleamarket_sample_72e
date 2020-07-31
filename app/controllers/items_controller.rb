@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
 
     if current_user.id == @item.user.id then 
       redirect_to root_path, alert: "自分が出品した商品は購入できません"
-
       return
     end
 
@@ -37,10 +36,12 @@ class ItemsController < ApplicationController
       @cards = @customer.cards
     else
       redirect_to new_creditcard_path, alert: "支払い方法を登録してください"
+      return
     end
 
     if @item.closed_time.present? then 
       redirect_to root_path, alert: "この商品はすでに購入されています"
+      return
     end
   end
 
@@ -63,11 +64,12 @@ class ItemsController < ApplicationController
       @item.destination_id = params[:destination_id]
       @item.status = 2
       @item.save
-      binding.pry
       redirect_to complete_item_path, notice: "商品は正常に購入されました"
+      return
     rescue => error
       p error
       redirect_to confirm_item_path, alert: "購入できませんでした。再度お試しください"
+      return
     end
   end
 
