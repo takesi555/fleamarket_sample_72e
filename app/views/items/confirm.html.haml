@@ -3,6 +3,14 @@
     .header__logo
       = link_to root_path,class: 'header__logo--link' do
         = image_tag "logo.png",class:"header__logo--img"
+  :javascript
+    function check(){
+      if(window.confirm("購入を確定します。よろしいですか？")){
+        return true;
+      }else{
+        return false;
+      }
+    }
   .confirm-main
     .confirm-main_title
       購入内容の確認
@@ -19,7 +27,7 @@
           円
 
     .confirm-main_form
-      %form{action:purchase_item_path,method:"POST",name:"purchase"}
+      %form{action:purchase_item_path,method:"POST",name:"purchase",onsubmit:"return check()"}
         %input{type:"hidden",name:"payjp_customer_id",value:@customer[:id]}
         %input{type:"hidden",name:"authenticity_token",value:form_authenticity_token}
         .confirm-main_form-destination

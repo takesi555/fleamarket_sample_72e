@@ -62,8 +62,9 @@ class ItemsController < ApplicationController
       @item.closed_time = Time.now
       @item.buyer_id = current_user.id
       @item.destination_id = params[:destination_id]
+      @item.status = 2
       @item.save
-      redirect_to root_path, notice: "商品は正常に購入されました"
+      redirect_to complete_item_path
       return
     rescue => error
       p error
