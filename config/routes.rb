@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     member do
       get 'confirm'
       post 'purchase'
+      get 'complete'
     end
   end
 end

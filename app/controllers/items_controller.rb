@@ -61,8 +61,10 @@ class ItemsController < ApplicationController
       @item.closed_time = Time.now
       @item.buyer_id = current_user.id
       @item.destination_id = params[:destination_id]
+      @item.status = 2
       @item.save
-      redirect_to root_path, notice: "商品は正常に購入されました"
+      binding.pry
+      redirect_to complete_item_path, notice: "商品は正常に購入されました"
     rescue => error
       p error
       redirect_to confirm_item_path, alert: "購入できませんでした。再度お試しください"
