@@ -1,4 +1,12 @@
 .wrapper
+  :javascript
+    function check(){
+      if(window.confirm("このカードの登録を削除してよろしいですか？")){
+        return true;
+      }else{
+        return false;
+      }
+    }
   .header
     .header__logo
       = link_to root_path,class: 'header__logo--link' do
@@ -11,7 +19,7 @@
     =link_to "・新しいクレジットカードを登録する", new_creditcard_path,data: {"turbolinks" => false}
     .confirm-main_purchase_title
       ・削除するカードを選択
-      %form{action: creditcard_path,method:"POST",name:"purchase"}
+      %form{action: creditcard_path,method:"POST",name:"purchase",onsubmit:"return check()"}
         %input{type:"hidden",name:"payjp_customer_id",value:@customer[:id]}
         %input{type:"hidden",name:"authenticity_token",value:form_authenticity_token}
         %input{type:"hidden",name:"_method",value:"DELETE"}
