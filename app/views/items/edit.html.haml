@@ -24,6 +24,11 @@
               最大5枚までアップロードできます
             .imagegroup
               .previewbox
+                - @item.itemimages.each.with_index do |img,i|
+                  .previewbox__group.previewbox__group_saved{"data-index_saved": i}
+                    = image_tag img.image.url, class: "previewbox__group--img"
+                    .previewbox__group--btn
+                      削除
               %label.imagebox
                 .imagebox__info
                   = image_tag "icon_camera.png",class:'imagebox__info--icon'
