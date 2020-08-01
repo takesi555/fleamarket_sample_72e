@@ -36,6 +36,10 @@
                     <br>クリックしてファイルをアップロード
                 .imagebox__group_for_new
                   = file_field_tag :image, class:'imagebox__field', accept: "image/*"
+                = f.fields_for :itemimages do |i|
+                  .imagebox__group_saved{"data-index_saved": i }
+                    = i.file_field :image, class:'imagebox__field', accept: "image/*"
+                    = i.check_box :_destroy, class: "hidden-destroy"
                 
         .content.content__summary
           .content-small.content__summary--item-name
