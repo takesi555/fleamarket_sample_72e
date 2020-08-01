@@ -31,11 +31,11 @@ window.addEventListener('load', function() {
 
       reader.onload = function(e) {
         //preview-------------------------------
-        //【新規】previewbox__group_unsavedを後ろから追加
+        //【新規・編集】previewbox__group_unsavedを後ろから追加
         $('.previewbox').append(buildPreviewboxGroup(e.target.result));
 
         //input-----------------------------------
-        //【新規】データの入ったinputタグ（DB未保存）のクラス名をimagebox__group_unsavedに変更して、imageboxの後ろから追加（非表示）
+        //【新規・編集】データの入ったinputタグ（DB未保存）のクラス名をimagebox__group_unsavedに変更して、imageboxの後ろから追加（非表示）
         $('.imagebox__group_for_new').removeClass('imagebox__group_for_new').addClass('imagebox__group_unsaved').appendTo('.imagebox');
         $('.imagebox__group_unsaved').hide();
         //【新規】画像追加用inputタグを追加
