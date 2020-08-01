@@ -41,8 +41,6 @@ window.addEventListener('load', function() {
         //【新規】画像追加用inputタグを追加
         $('.imagebox').prepend(buildImageboxGroup());
 
-        //（１）と（２）により追加分（＝未保存）のpreviweboxとinputタグのインデックス番号が揃う（削除時に、previewboxのインデックス情報から、削除すべきinputタグが指定できる）
-        //【新規】追加分（＝未保存）のpreviewboxについて、changeの都度１から採番・・・（１）
         //管理番号の採番---------------------------
         //（１）と（２）により編集分（＝DB保存済）のpreviweboxとinputタグのインデックス番号が揃う
         //【編集】編集分（＝DB保存済）のpreviewboxについて、changeの都度、０から採番・・・（１）
@@ -58,14 +56,18 @@ window.addEventListener('load', function() {
           $(this).children('.hidden-destroy').attr('id', 'item_itemimages_attributes_' + (i) +'__destroy');
         });
 
+        //（３）と（４）により追加分（＝DB未保存）のpreviweboxとinputタグのインデックス番号が揃う
+        let previewbox_saved_count = $('.previewbox__group_saved').length;
+        //【新規・編集】追加分（＝DB未保存）のpreviewboxについて、changeの都度、index_savedの最終番号に続けて採番・・・（３）
         $('.previewbox__group_unsaved').each(function(i) {
-          $(this).attr('data-index_unsaved', (i+1));
+          $(this).attr('data-index_unsaved', (previewbox_saved_count + i));
         });
-        //【新規】追加分（＝未保存）のinputタグについて、changeの都度１から採番・・・（２）
+        //【新規・編集】追加分（＝DB未保存）のinputタグについて、changeの都度、index_savedの最終番号に続けて採番・・・（４）
         $('.imagebox__group_unsaved').each(function(i) {
-          $(this).attr('data-index_unsaved', (i+1));
-          $(this).children('.imagebox__field').attr('name', "item[itemimages_attributes][" + (i+1) + "][image]");
-          $(this).children('.imagebox__field').attr('id', 'item_itemimages_attributes_' + (i+1) +'_image');
+          $(this).attr('data-index_unsaved', (previewbox_saved_count + i));
+          $(this).children('.imagebox__field_for_new').removeClass('imagebox__field_for_new').addClass('imagebox__field');
+          $(this).children('.imagebox__field').attr('name', "item[itemimages_attributes][" + (previewbox_saved_count + i) + "][image]");
+          $(this).children('.imagebox__field').attr('id', 'item_itemimages_attributes_' + (previewbox_saved_count + i) +'_image');
         });
 
         //ビューのリセット
