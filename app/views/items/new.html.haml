@@ -72,7 +72,7 @@
               %span.caution--optional
                 任意
             .selector
-              = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "選択してください"}, class: 'selector__box'
+              = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "選択してください", include_blank: true}, class: 'selector__box'
               %i.fas.fa-angle-down
           .content-small.content__detail--brand
             .title
