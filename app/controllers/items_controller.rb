@@ -20,8 +20,8 @@ class ItemsController < ApplicationController
       # redirect_to root_path, notice: '商品を出品しました'
     else
       render :new
-      @item = Item.new(item_params)
-      @item.itemimages.build
+      # @item = Item.new(item_params)
+      # @item.itemimages.build
     end
   end
 
