@@ -41,10 +41,9 @@ window.addEventListener('load', function() {
         //【新規】画像追加用inputタグを追加
         $('.imagebox').prepend(buildImageboxGroup());
 
-        //識別のための管理番号をつけ直す(先頭は１(=i+1))
-        
         //（１）と（２）により追加分（＝未保存）のpreviweboxとinputタグのインデックス番号が揃う（削除時に、previewboxのインデックス情報から、削除すべきinputタグが指定できる）
         //【新規】追加分（＝未保存）のpreviewboxについて、changeの都度１から採番・・・（１）
+        //管理番号の採番---------------------------
         $('.previewbox__group_unsaved').each(function(i) {
           $(this).attr('data-index_unsaved', (i+1));
         });
