@@ -92,6 +92,11 @@ window.addEventListener('load', function() {
         $('.imagebox__group_unsaved[data-index_unsaved='+targetIndex_unsaved+']').remove();
       }
       
+      //【編集】編集分（＝DB保存済）の場合、親要素（previewbox__group_saved）のインデックスと同一の親要素（プレビュー）を非表示、およびinputタグ（チェックボックス）の_destroyにチェックを入れる
+      if (targetIndex_saved !== undefined){
+        $('.previewbox__group_saved[data-index_saved='+targetIndex_saved+']').hide();
+        $(`#item_itemimages_attributes_${targetIndex_saved}__destroy`).prop('checked', true);
+      }
       //ビューのリセット
       let previewbox_count = $('.previewbox__group').length;
       if (previewbox_count <= 4) {
