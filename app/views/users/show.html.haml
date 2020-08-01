@@ -1,1 +1,40 @@
-= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+= render 'home/header'
+.users.show
+
+  .users.show__left-wrapper
+
+    - @contents.each do |content|
+      .users.show__left-wrapper__contents
+        .users.show__left-wrapper__contents__content-title
+          = link_to content[:path],method: content[:verb] do
+            = content[:name]
+
+    -# コメントアウトしているのは機能拡張の際に使用できる記述を残しておきます。
+    -# .users.show__left-wrapper__furimapay-desc
+    -#   %h  フリマペイ
+    -#   - @furimapays.each do |f|
+    -#     .users.show__left-wrapper__furimapay
+    -#       .users.show__left-wrapper__furimapay__furimapay-title
+    -#         = link_to f[:path],method: f[:verb] do
+    -#           = f[:name]
+
+    .users.show__left-wrapper__settings-desc
+      %h1  設定
+      - @settings.each do |s|
+        .users.show__left-wrapper__settings
+          .users.show__left-wrapper__settings__setting-title
+            = link_to s[:path],method: s[:verb] do
+              = s[:name]
+              
+  .users.show__right-wrapper
+    .users.show__right-wrapper__head
+      .users.show__right-wrapper__head__icon
+        = image_tag 'icon/mypageicon.png', height: '80', width: '80'
+      .users.show__right-wrapper__head__nickname
+        名前
+        = current_user.nickname
+      .users.show__right-wrapper__head__products-count
+        出品数
+        = current_user.items.count
+
+= render 'home/footer'

@@ -1,0 +1,38 @@
+.header__box
+  .header__box__main
+    .main__icon
+      = link_to root_path do
+        = image_tag 'logo/logo.png', alt: 'title', height: '41', width: '140'
+    .main__search
+      = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+        = button_tag type: "submit", class: "search-btn" do
+          %i.fas.fa-search.fa-2x
+  .header__box__action
+
+    %ul.action__list
+      %li.list__category
+        -#= link_to categories_path do
+          = image_tag 'icon/icon_category.png', height: '12.5', width: '15'
+        カテゴリー
+        -#= render partial: 'home/categorymenu'
+
+      %li.list__brand
+        = link_to "#" do
+          = image_tag 'icon/icon_brand.png', height: '12.5', width: '15'
+          ブランド
+    %ul.action__user
+      - if user_signed_in?
+        %li.mypage
+          = link_to user_path(current_user.id), class: "mypage_btn" do
+            マイページ
+          = link_to destroy_user_session_path, method: :delete, class: 'new_btn' do
+            ログアウト
+      - else
+        %li.user__login
+          = link_to new_user_session_path, class: "login_btn" do
+            ログイン
+        %li.user__new
+          = link_to new_user_registration_path, class: "new_btn" do
+            新規会員登録
+            
