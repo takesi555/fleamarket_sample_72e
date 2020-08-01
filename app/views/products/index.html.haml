@@ -1,3 +1,9 @@
+- if flash[:notice]
+  .alert-success
+    = flash[:notice]
+- if flash[:alert]
+  .alert-alert
+    = flash[:alert]
 .main
   .header
     -if user_signed_in?

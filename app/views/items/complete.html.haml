@@ -5,14 +5,13 @@
         = image_tag("logo.png",size: "189x49",class: "image")
 
   .single-main
-    %h2.single-main__head 会員登録完了
+    %h2.single-main__head 購入完了
     .single-main__form
       .single-main__content
         .form-group
-          ありがとうございます。
-          会員登録が完了しました。
+          商品は正常に購入されました。
         .form-group
           %p.form-group__text--center
-          %button{type:"button",class: "btn-default btn-red",onclick: "location.href='/'"}フリマアプリを始める
+          %button{type:"button",class: "btn-default btn-red",onclick: "location.href='/'"}トップページに移動
 
   = render "devise/registrations/registration_footer"
