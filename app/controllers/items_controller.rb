@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   },only: [:confirm,:purchase]
 
   before_action :move_to_index
+  before_action :set_item, only: [:edit, :update]
 
   def new
     @item = Item.new
@@ -24,14 +25,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     if @item.user_id != current_user.id
       redirect_to root_path
     end
   end
 
   def update
-    @item = Item.find(params[:id]) 
     if @item.update(item_params)
       redirect_to root_path
       # フラッシュメッセージを利用する場合は、以下に置き換え
