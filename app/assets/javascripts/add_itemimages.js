@@ -44,6 +44,20 @@ window.addEventListener('load', function() {
         //（１）と（２）により追加分（＝未保存）のpreviweboxとinputタグのインデックス番号が揃う（削除時に、previewboxのインデックス情報から、削除すべきinputタグが指定できる）
         //【新規】追加分（＝未保存）のpreviewboxについて、changeの都度１から採番・・・（１）
         //管理番号の採番---------------------------
+        //（１）と（２）により編集分（＝DB保存済）のpreviweboxとinputタグのインデックス番号が揃う
+        //【編集】編集分（＝DB保存済）のpreviewboxについて、changeの都度、０から採番・・・（１）
+        $('.previewbox__group_saved').each(function(i) {
+          $(this).attr('data-index_saved', (i));
+        });
+        //【編集】編集分（＝DB保存済）のinputタグについて、changeの都度、０から採番・・・（２）
+        $('.imagebox__group_saved').each(function(i) {
+          $(this).attr('data-index_saved', (i));
+          $(this).children('.imagebox__field').attr('name', "item[itemimages_attributes][" + (i) + "][image]");
+          $(this).children('.imagebox__field').attr('id', 'item_itemimages_attributes_' + (i) +'_image');
+          $(this).children('.hidden-destroy').attr('name', "item[itemimages_attributes][" + (i) + "][_destroy]");
+          $(this).children('.hidden-destroy').attr('id', 'item_itemimages_attributes_' + (i) +'__destroy');
+        });
+
         $('.previewbox__group_unsaved').each(function(i) {
           $(this).attr('data-index_unsaved', (i+1));
         });
