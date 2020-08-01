@@ -35,7 +35,7 @@ window.addEventListener('load', function() {
         $('.previewbox').append(buildPreviewboxGroup(e.target.result));
 
         //input-----------------------------------
-        //【新規】データの入ったinputタグ（未保存）のクラス名をimagebox__group_unsavedに変更して、imageboxの後ろから追加（非表示）
+        //【新規】データの入ったinputタグ（DB未保存）のクラス名をimagebox__group_unsavedに変更して、imageboxの後ろから追加（非表示）
         $('.imagebox__group_for_new').removeClass('imagebox__group_for_new').addClass('imagebox__group_unsaved').appendTo('.imagebox');
         $('.imagebox__group_unsaved').hide();
         //【新規】画像追加用inputタグを追加
