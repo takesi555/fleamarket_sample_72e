@@ -32,6 +32,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @item = Item.find(params[:id]) 
+    if @item.update(item_params)
+      redirect_to root_path
+      # フラッシュメッセージを利用する場合は、以下に置き換え
+      # redirect_to root_path, notice: '商品を編集しました'
+    else
+      render :edit
+      # @item = Item.new(item_params)
+      # @item.itemimages.build
+    end
+  end
+
   def confirm
 
     # ログイン機能実装後以下を使用
