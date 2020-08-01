@@ -158,10 +158,10 @@
                   display: flex;
                   justify-content: center;
                   display: none;
-                  .imagebox__field{
+                }
+                  &__group_saved{
                     display: none;
                   }
-                }
               }
             }      
         .content__detail{
