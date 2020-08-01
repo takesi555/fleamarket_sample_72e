@@ -82,6 +82,9 @@ window.addEventListener('load', function() {
     });
 
     $('.previewbox').on('click', '.previewbox__group--btn', function() {
+        
+      let targetIndex_unsaved = $(this).parent().data('index_unsaved');
+      let targetIndex_saved = $(this).parent().data('index_saved');
 
       //【新規】追加分（＝DB未保存）の場合、親要素（previewbox__group_unsaved）のインデックスと同一の親要素（プレビュー）、およびinputタグを削除する
       let targetIndex = $(this).parent().data('index_unsaved');
