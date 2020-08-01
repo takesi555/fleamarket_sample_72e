@@ -23,6 +23,11 @@ window.addEventListener('load', function() {
       return html;
     }
 
+    let previewbox_count = $('.previewbox__group').length;
+    if (previewbox_count == 5) {
+      $('.imagebox').css('visibility', 'hidden');
+    }
+
     $(document).on('change', 'input[type= "file"]', function(e) {
 
       let reader = new FileReader();  //画像を読み込む（ファイルリーダーオブジェクトをインスタンス化）
@@ -71,16 +76,19 @@ window.addEventListener('load', function() {
         });
 
         //ビューのリセット
+        let previewbox_hidden_count = $('.imagebox__group_saved :checked').length;
         let previewbox_count = $('.previewbox__group').length;
-        if (previewbox_count >=1) {
+        let previewbox_unhidden_count = previewbox_count - previewbox_hidden_count;
+        if (previewbox_unhidden_count >=1) {
           $('.imagebox__info--comments').css('display', 'none');
         }
-        if (previewbox_count == 5) {
+        if (previewbox_unhidden_count == 5) {
           $('.imagebox').css('visibility', 'hidden');
         }
       } 
+    
     });
-
+    
     $('.previewbox').on('click', '.previewbox__group--btn', function() {
         
       let targetIndex_unsaved = $(this).parent().data('index_unsaved');
@@ -98,8 +106,10 @@ window.addEventListener('load', function() {
         $(`#item_itemimages_attributes_${targetIndex_saved}__destroy`).prop('checked', true);
       }
       //ビューのリセット
+      let previewbox_hidden_count = $('.imagebox__group_saved :checked').length;
       let previewbox_count = $('.previewbox__group').length;
-      if (previewbox_count <= 4) {
+      let previewbox_unhidden_count = previewbox_count - previewbox_hidden_count;
+      if (previewbox_unhidden_count <= 4) {
         $('.imagebox').css('visibility', 'visible');
       }
 
