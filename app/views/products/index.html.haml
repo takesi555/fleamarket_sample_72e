@@ -32,7 +32,8 @@
     .lists
       %ul.list
         .list__pict
-        %span.image
+          %span.number
+            1
           = image_tag src="/assets/pict-reason-01.jpg", size: "274x274"
         .list__text
           ３分
@@ -42,7 +43,8 @@
           スマホで入力するだけで簡単に出品できる！
       %ul.list
         .list__pict
-        %span.image
+          %span.number
+            2
           = image_tag src="/assets/pict-reason-02.jpg", size: "274x274"
         .list__text
           シンプル
@@ -52,7 +54,8 @@
           めんどくさい入力は必要なく、検索も購入もスムーズ！
       %ul.list
         .list__pict
-        %span.image
+          %span.number
+            3
           = image_tag src="/assets/pict-reason-03.jpg", size: "274x274"
         .list__text
           業界最安
@@ -83,7 +86,6 @@
     .lists
       %ul.list
         .list__pict
-        %span.image
           = image_tag src="/assets/icon-01.png", size: "148x228"
         .list__text
           簡単に売り買いできる
@@ -91,7 +93,6 @@
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %ul.list
         .list__pict
-        %span.image
           = image_tag src="/assets/icon-03.png", size: "148x228"
         .list__text
           売上金は即日振込みに対応
@@ -99,53 +100,14 @@
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       %ul.list
         .list__pict
-        %span.image
           = image_tag src="/assets/icon-04.png", size: "148x228"
         .list__text
           様々な支払いに対応
         .list__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
+  = render "pickup-section"
 
-
-
-
-
-
-
-
-
-  .pickup-section
-    .pickup-section__header
-      .pickup-section__header--title
-        ピックアップカテゴリー
-      %ul.pickup-section__header--list
-        %li.header__list--logo
-          新規投稿商品
-
-    .pickup-section__main
-      .pickup-section__main--title
-        .main__title--text
-          新着アイテム
-        .main__title--more
-          もっと見る >
-
-  .pickup-section
-    .pickup-section__header
-      .pickup-section__header--title
-        ピックアップブランド
-      %ul.pickup-section__header--list
-        %li.header__list--logo
-          アーカイバ
-
-    .pickup-section__main
-      .pickup-section__main--title
-        .main__title--text
-          新着アイテム
-        .main__title--more
-          もっと見る >
-
-
-  = render "bottom"
-
-=render "footer"
+= render "bottom"
+= render "sell-tab"
+-# = render "footer"
