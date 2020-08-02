@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
     set_item
   },only: [:confirm,:purchase]
 
+  before_action :move_to_index
+  before_action :set_item, only: [:edit, :update]
 
   def new
     @item = Item.new
@@ -19,8 +21,22 @@ class ItemsController < ApplicationController
       # redirect_to root_path, notice: '商品を出品しました'
     else
       render :new
-      @item = Item.new(item_params)
-      @item.itemimages.build
+    end
+  end
+
+  def edit
+    if @item.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+      # フラッシュメッセージを利用する場合は、以下に置き換え
+      # redirect_to root_path, notice: '商品を編集しました'
+    else
+      render :edit
     end
   end
 
@@ -87,7 +103,7 @@ class ItemsController < ApplicationController
   end
   
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :brand_id, :condition_id, :postage_id, :prefecture_id, :preparation_id, :price, itemimages_attributes: [:image]).merge(user_id: current_user.id, status: 1)
+    params.require(:item).permit(:name, :description, :category_id, :size, :brand_id, :condition_id, :postage_id, :prefecture_id, :preparation_id, :price, itemimages_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, status: 1)
   end
 
   def move_to_index
