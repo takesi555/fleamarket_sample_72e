@@ -1,16 +1,11 @@
 .bottom
   .image-bottom
-    .image-bottom__left
-      .image-bottom__left--top-text
-        スマホでかんたんフリマアプリ
-      .image-bottom__left--bottom-text
+    .bottom__text
+      スマホでかんたんフリマアプリ
+      .bottom-text-description
         今すぐ無料ダウンロード！
-      .image-bottom__left--link
-        .link__mercari
-
-        .link__apple
-        %li.link__apple
-          = link_to image_tag('app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
-
-        %li.link__google
-          = link_to image_tag('google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+    %ul.bottom__link--tag
+      %li.link__apple
+        = link_to image_tag('app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
+      %li.link__google
+        = link_to image_tag('google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
