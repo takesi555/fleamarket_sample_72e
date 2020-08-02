@@ -1,8 +1,6 @@
 .main {
   color: rgb(51, 51, 51);
   background-color:rgb(245,245,245);
-  min-height: 100vh;
-  width: 100vw;
 
   .header {
     width: 100vw;
@@ -56,7 +54,6 @@
 
   .middle-tier {
     padding: 60px 20px;
-
     .middle-tier_subtitle {
       text-align: center;
       font-size: 26px;
@@ -76,14 +73,14 @@
         left: 50%;
         transform: translateX(-50%);
     }
-
     .lists {
       text-align: center;
       display: flex;
       max-width: 1020px;
       width: 100%;
       margin: 0 auto;
-
+      position: relative;
+      margin-bottom: 20px;
         .list {
           width: 30%;
           margin: 16px 5% 0 0;
@@ -91,10 +88,20 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-
           .list__pict{
             width: 100%;
             vertical-align: bottom;
+          }
+          .number {
+            display: inline-block;
+            position: absolute;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: #3CCACE;
+            color: #fff;
           }
           .list__text{
             font-weight: bold;
@@ -122,7 +129,6 @@
     background-size: cover;
     display: flex;
     align-items: center;
-
     .image-lower-tier {
       width: 750px;
       justify-content: space-between;
@@ -133,7 +139,6 @@
       max-width: 1040px;
       width: 100%;
       margin: 0 auto;
-
     .lower-tier__text {
       font-size: 27px;
       font-weight: bold;
@@ -144,18 +149,16 @@
       margin: 20px 0 30px;
       line-height: 1.5;
     }
-
     .lower-tier__link--tag {
       display: flex;
-
         .link__apple #appstore {
           width: 180px;
           margin: 20px auto 0;
+          margin-right: 10px;
           &:hover {
             opacity: 0.8;
           }
         }
-
         .link__google #googleplay {
           width: 180px;
           margin: 20px auto 0;
@@ -170,7 +173,6 @@
   .top-feature {
     padding: 60px 100px;
     background-color: #fff;
-
     .top-feature_subtitle {
       font-size: 27px;
       text-align: center;
@@ -190,25 +192,22 @@
         left: 50%;
         transform: translateX(-50%);
     }
-
     .lists {
-      text-align: center;
-      display: flex;
-      max-width: 1020px;
+      max-width: calc(1040px + 20px);
       width: 100%;
       margin: 0 auto;
-
+      display: flex;
+      flex-wrap: wrap;
         .list {
-          width: 30%;
-          margin: 16px 5% 0 0;
-          text-align: left;
           display: flex;
           flex-direction: column;
-          align-items: center;
-
+          width: calc(1 / 3 * 100%);
+          text-align: center;
+          padding: 0 20px;
           .list__pict{
-            width: 100%;
-            vertical-align: bottom;
+            width: 70%;
+            margin: 0 auto;
+            line-height: 120px;
           }
           .list__text{
             margin: 38px 0 10px;
@@ -224,205 +223,36 @@
         }
     }
   }
-
-
-  .bottom {
-    background-image: url(/assets/bg-appBanner-pict.jpg);
-    padding: 100px 40px;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-
-    .image-bottom {
-      width: 750px;
-      justify-content: space-between;
-      margin: 0px auto;
-
-      &__left {
-
-        &--top-text {
-          color: #fff;
-          text-align: center;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          font-size: 24px;
-          font-weight: bold;
-          line-height: 1.4;
-        }
-
-        &--bottom-text {
-          color: #fff;
-          text-align: center;
-          font-size: 35px;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          margin-bottom: 20px;
-        }
-
-        &--link {
-          display: flex;
-          justify-content: center;
-
-          .link__apple #appstore {
-            width: 180px;
-            margin: 20px auto 0;
-            &:hover {
-              opacity: 0.8;
-            }
-          }
-
-          .link__google #googleplay {
-            width: 180px;
-            margin: 20px auto 0;
-            &:hover {
-              opacity: 0.8;
-            }
-          }
-        }
-      }
-
-      &__right {
-        height: 260px;
-        width: 300px;
-      }
-    }
-  }
-
-  .footer {
-    width: 100vw;
-    height: 400px;
-    background-color: rgb(34, 34, 34);
-  }
-
-  .pickup-section {
-    background-color: rgb(251, 251, 251);
-    padding: 0px;
-    margin: 0px auto;
-
-    &__header {
-      padding: 56px 0 30px;
-
-      &--title {
-        font-size: 28px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 16px;
-      }
-
-      &--list {
-        display: flex;
-        justify-content: center;
-
-        .header__list--logo {
-          font-weight: bold;
-          font-size: 14px;
-          background-color: rgb(239, 239, 239);
-          padding: 8px 16px;
-          border-radius: 16px;
-          margin: 10px 0px 0px 10px;
-        }
-      }
-    }
-  }
   
-  .pickup-section__main {
-    background-color: rgb(239, 239, 239);
-    padding: 42px 0px 100px;
-    margin: 0px auto;
-    
-    &--title {
-      margin: 0px auto;
-      width: 1020px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 16px;
+}
+.sell-tab {
+  font-size: 22px;
+  height: 120px;
+  width: 120px;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  text-align: center;
+  z-index: 2;
+  cursor: pointer;
 
-      .main__title--text {
-        font-size: 24px;
-        font-weight: bold;
-      }
+  .sell-tab__box {
+    height: 120px;
+    width: 120px;
+    background: #3CCACE;
+    text-align: center;
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 15px;
 
-      .main__title--more {
-        font-size: 14px;
-        font-weight: bold;
-        padding: 5px 16px 5px 5px;
-        color: rgb(0, 149, 238);
-      }
-    }
-
-    &--products {
-      margin: 0px auto;
-      width: 1020px;
-      display: flex;
-      flex-wrap: wrap;
-
-      .products__list {
-        width: 182px;
-        height: 230px;
-        margin: 10px;
-
-        .product {
-          width: 100%;
-          display: flex;
-          flex-direction: column-reverse;
-          background-color:#ffffff;
-          margin: 0;
-          box-shadow: 0 2px 4px rgba(0,0,0,.18);
-
-          &__text {
-            color: #222;
-            font-size: 14px;
-            height: 40px;
-            line-height: 1.4em;
-            padding: 0 12px;
-            word-break: break-word;
-            overflow: hidden;
-            margin-top: 8px;
-          }
-
-          &__thumbnail {
-            overflow: hidden;
-            padding: 0 0 100%;
-            width: 100%;
-            position: relative;
-
-            &--label {
-              align-items: center;
-              background: rgba(0,0,0,0.9);
-              border-radius: 0 14px 14px 0;
-              bottom: 8px;
-              color:#ffffff;
-              display: inline-flex;
-              font-size: 17px;
-              height: 28px;
-              letter-spacing: .02em;
-              margin: 0;
-              padding: 0 12px;
-              position: absolute;
-              z-index: 2;
-              opacity: 0.5;
-            }
-
-            &--image {
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              height: 100%;
-              width: 100%;
-              object-fit: cover;
-              vertical-align: top;
-              z-index: 1;
-            }
-          }
-        }
-
-        .product:hover {
-          margin: -1px;
-          border: 1px solid rgb(0, 149, 238);
-          cursor: pointer;
-        }
-      }
-    }
+    &--text {
+      color: #fff;
+      display: block;
+      font-size: 18px;
+      text-decoration: none;
+      margin-bottom: 5px;    
+    }    
   }
-  
-  
 }
