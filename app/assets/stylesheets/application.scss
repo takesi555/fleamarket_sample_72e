@@ -1,4 +1,4 @@
- @import "registration";
+ @import "reset";
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
@@ -8,9 +8,12 @@
  @import "footer";
  @import "./pickup-section";
 
- @import "reset";
  @import "./config/colors";
 
+ @import "registration";
+ @import "modules/header";
+ @import "modules/footer";
+ @import "modules/users.show";
  @import "./modules/items";
  @import "./modules/creditcards";
  @import "./modules/alerts"

@@ -3,12 +3,20 @@
     .header__logo
       = link_to root_path,class: 'header__logo--link' do
         = image_tag "logo.png",class:"header__logo--img"
+  :javascript
+    function check(){
+      if(window.confirm("購入を確定します。よろしいですか？")){
+        return true;
+      }else{
+        return false;
+      }
+    }
   .confirm-main
     .confirm-main_title
       購入内容の確認
     .confirm-main_item
       .confirm-main_item-image
-        テスト画像
+        = image_tag @item.itemimages.first.image.url
       .confirm-main_item-text
         .confirm-main_item-text-name
           商品名:
@@ -19,7 +27,7 @@
           円
 
     .confirm-main_form
-      %form{action:purchase_item_path,method:"POST",name:"purchase"}
+      %form{action:purchase_item_path,method:"POST",name:"purchase",onsubmit:"return check()"}
         %input{type:"hidden",name:"payjp_customer_id",value:@customer[:id]}
         %input{type:"hidden",name:"authenticity_token",value:form_authenticity_token}
         .confirm-main_form-destination
@@ -27,23 +35,23 @@
             配送先選択
             %span.caution
               必須
-        - for i in 0..(current_user.destinations.count-1) do
-          %input{type:"radio",name:"destination_id",value:current_user.destinations[i].id,required:"true",class:"confirm-main_form-destination_radio"}
-          .confirm-main_form-destination-content
-            .confirm-main_form-destination-content-postcode
-              〒
-              = current_user.destinations[i].post_code
-            .confirm-main_form-destination-content-prefecture
-              = current_user.destinations[i].prefecture.name
-            .confirm-main_form-destination-content-city
-              = current_user.destinations[i].city
-            .confirm-main_form-destination-content-block_num
-              = current_user.destinations[i].block_num
-            .confirm-main_form-destination-content-name
-              .confirm-main_form-destination-content-name-first
-                = current_user.destinations[i].last_name
-              .confirm-main_form-destination-content-name-last
-                = current_user.destinations[i].first_name
+        -#- for i in 0..(current_user.destinations.count-1) do
+        %input{type:"radio",name:"destination_id",value:current_user.destination.id,required:"true",class:"confirm-main_form-destination_radio"}
+        .confirm-main_form-destination-content
+          .confirm-main_form-destination-content-postcode
+            〒
+            = current_user.destination.post_code
+          .confirm-main_form-destination-content-prefecture
+            = current_user.destination.prefecture.name
+          .confirm-main_form-destination-content-city
+            = current_user.destination.city
+          .confirm-main_form-destination-content-block_num
+            = current_user.destination.block_num
+          .confirm-main_form-destination-content-name
+            .confirm-main_form-destination-content-name-first
+              = current_user.destination.last_name
+            .confirm-main_form-destination-content-name-last
+              = current_user.destination.first_name
         .confirm-main_purchase
           .confirm-main_purchase_title
             支払い方法選択
