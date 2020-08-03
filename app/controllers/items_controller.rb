@@ -29,6 +29,19 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end
   end
+  
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def destroy
+    #binding.pry
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to user_path(current_user.id), notice: '商品を削除しました'
+    end
+  end
 
   def update
     if @item.update(item_params)
