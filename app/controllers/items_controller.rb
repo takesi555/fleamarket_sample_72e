@@ -35,8 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.user_id == current_user.id
-      @item.destroy
+    if @item.user_id == current_user.id && @item.destroy
       redirect_to user_path(current_user.id), notice: '商品を削除しました'
     end
   end
