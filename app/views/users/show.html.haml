@@ -35,7 +35,7 @@
         = current_user.nickname
       .users.show__right-wrapper__head__products-count
         出品数
-        = current_user.items.count
+        = current_user.items.where.not(status: 0).count
 
     .users.show__right-wrapper__body
       .users.show__right-wrapper__body__title
