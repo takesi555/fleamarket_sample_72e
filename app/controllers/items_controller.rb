@@ -6,8 +6,7 @@ class ItemsController < ApplicationController
   },only: [:confirm,:purchase]
 
   before_action :move_to_index
-  before_action :set_item, only: [:edit, :update]
-  before_action :set_show, only: [:show, :destroy]
+  before_action :set_show, only: [:edit, :update, :show, :destroy]
 
   def new
     @item = Item.new
