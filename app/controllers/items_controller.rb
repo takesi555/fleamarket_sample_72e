@@ -16,9 +16,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
-      # フラッシュメッセージを利用する場合は、以下に置き換え
-      # redirect_to root_path, notice: '商品を出品しました'
+      redirect_to root_path, notice: '商品を出品しました'
     else
       render :new
     end
@@ -32,9 +30,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
-      # フラッシュメッセージを利用する場合は、以下に置き換え
-      # redirect_to root_path, notice: '商品を編集しました'
+      redirect_to root_path, notice: '商品を編集しました'
     else
       render :edit
     end
