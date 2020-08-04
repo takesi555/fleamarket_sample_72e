@@ -1,4 +1,11 @@
 = render 'home/header'
+- if flash[:notice]
+  .alert-success
+    = flash[:notice]
+- if flash[:alert]
+  .alert-alert
+    = flash[:alert]
+
 .users.show
 
   .users.show__left-wrapper
