@@ -135,8 +135,7 @@
               ー
           .content-small.content__price--buttons
             = f.submit '出品する', class: 'btn btn--submit'
-            = link_to "#",class: 'btn btn--back' do
-              もどる
+            = link_to 'もどる', root_path, class: 'btn btn--back'
 
   .footer
     %ul.footer__conditions
