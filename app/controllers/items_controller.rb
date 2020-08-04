@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   before_action :move_to_index
   before_action :set_item, only: [:edit, :update]
+  before_action :set_show, only: [:show, :destroy]
 
   def new
     @item = Item.new
@@ -31,16 +32,18 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
   end
 
   def destroy
-    #binding.pry
-    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
       redirect_to user_path(current_user.id), notice: '商品を削除しました'
     end
+  end
+
+  private
+  def set_show
+    @item = Item.find(params[:id])
   end
 
   def update
