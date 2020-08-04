@@ -32,12 +32,6 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def destroy
-    if @item.user_id == current_user.id && @item.destroy
-      redirect_to user_path(current_user.id), notice: '商品を削除しました'
-    end
-  end
-
   def update
     if @item.update(item_params)
       redirect_to root_path, notice: '商品を編集しました'
@@ -47,6 +41,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if @item.user_id == current_user.id && @item.destroy
+      redirect_to user_path(current_user.id), notice: '商品を削除しました'
+    end
   end
 
   def confirm
