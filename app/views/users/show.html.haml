@@ -37,4 +37,17 @@
         出品数
         = current_user.items.count
 
+    .users.show__right-wrapper__body
+      .users.show__right-wrapper__body__title
+        出品中
+      - current_user.items.where(status: 1).each do |item|
+        .users.show__right-wrapper__body__item
+          .users.show__right-wrapper__body__item--left
+            = image_tag item.itemimages.first.image.url, class: 'show__right-wrapper__body__item--left--itemimage'
+          .users.show__right-wrapper__body__item--right
+            .users.show__right-wrapper__body__item--right--itemname
+              = link_to item.name, edit_item_path(item)
+            .users.show__right-wrapper__body__item--right--itemprice
+              ="¥#{item.price}"
+
 = render 'home/footer'
