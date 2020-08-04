@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   },only: [:confirm,:purchase]
 
   before_action :move_to_index
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   def new
     @item = Item.new
@@ -34,6 +34,9 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
   end
 
   def confirm
