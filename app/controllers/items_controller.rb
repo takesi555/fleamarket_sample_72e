@@ -38,11 +38,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
-  def set_show
-    @item = Item.find(params[:id])
-  end
-
   def update
     if @item.update(item_params)
       redirect_to root_path, notice: '商品を編集しました'
@@ -104,6 +99,11 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_show
+    @item = Item.find(params[:id])
+  end
+
   def set_item
     begin
       @item = Item.find(params[:id])
