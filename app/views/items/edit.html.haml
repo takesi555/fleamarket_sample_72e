@@ -1,7 +1,7 @@
 .wrapper
   .header
     .header__logo
-      = link_to "#",class: 'header__logo--link' do
+      = link_to root_path,class: 'header__logo--link' do
         = image_tag "logo.png",class:"header__logo--img"
   .main
     .contents
@@ -143,8 +143,7 @@
               ー
           .content-small.content__price--buttons
             = f.submit '出品する', class: 'btn btn--submit'
-            = link_to "#",class: 'btn btn--back' do
-              もどる
+            = link_to '削除する', item_path(@item), method: :delete, class: 'btn btn--back'
 
   .footer
     %ul.footer__conditions
@@ -158,7 +157,7 @@
         = link_to "#",class: 'btn btn--back' do
           特定商取引に関する表記
     .footer__logo
-      = link_to "#",class: 'footer__logo--link' do
+      = link_to root_path,class: 'footer__logo--link' do
         = image_tag "logo-white.png",class:"footer__logo--img"
         
 

@@ -6,8 +6,7 @@ class ItemsController < ApplicationController
   },only: [:confirm,:purchase]
 
   before_action :move_to_index
-  before_action :set_item, only: [:edit, :update]
-  before_action :set_show, only: [:show, :destroy]
+  before_action :set_show, only: [:edit, :update, :show, :destroy]
 
   def new
     @item = Item.new
@@ -17,9 +16,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
-      # フラッシュメッセージを利用する場合は、以下に置き換え
-      # redirect_to root_path, notice: '商品を出品しました'
+      redirect_to root_path, notice: '商品を出品しました'
     else
       render :new
     end
@@ -34,24 +31,17 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def destroy
-    if @item.user_id == current_user.id && @item.destroy
-      redirect_to user_path(current_user.id), notice: '商品を削除しました'
+  def update
+    if @item.update(item_params)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      render :edit
     end
   end
 
-  private
-  def set_show
-    @item = Item.find(params[:id])
-  end
-
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-      # フラッシュメッセージを利用する場合は、以下に置き換え
-      # redirect_to root_path, notice: '商品を編集しました'
-    else
-      render :edit
+  def destroy
+    if @item.user_id == current_user.id && @item.destroy
+      redirect_to user_path(current_user.id), notice: '商品を削除しました'
     end
   end
 
@@ -105,6 +95,11 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_show
+    @item = Item.find(params[:id])
+  end
+
   def set_item
     begin
       @item = Item.find(params[:id])
