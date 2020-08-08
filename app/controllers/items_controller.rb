@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
     set_item
   },only: [:confirm,:purchase]
 
+  before_action :move_to_index
+  before_action :set_show, only: [:edit, :update, :show, :destroy]
 
   def new
     @item = Item.new
@@ -14,13 +16,32 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
-      # フラッシュメッセージを利用する場合は、以下に置き換え
-      # redirect_to root_path, notice: '商品を出品しました'
+      redirect_to root_path, notice: '商品を出品しました'
     else
       render :new
-      @item = Item.new(item_params)
-      @item.itemimages.build
+    end
+  end
+
+  def edit
+    if @item.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
+  
+  def show
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @item.user_id == current_user.id && @item.destroy
+      redirect_to user_path(current_user.id), notice: '商品を削除しました'
     end
   end
 
@@ -74,6 +95,11 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_show
+    @item = Item.find(params[:id])
+  end
+
   def set_item
     begin
       @item = Item.find(params[:id])
@@ -87,7 +113,7 @@ class ItemsController < ApplicationController
   end
   
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :brand_id, :condition_id, :postage_id, :prefecture_id, :preparation_id, :price, itemimages_attributes: [:image]).merge(user_id: current_user.id, status: 1)
+    params.require(:item).permit(:name, :description, :category_id, :size, :brand_id, :condition_id, :postage_id, :prefecture_id, :preparation_id, :price, itemimages_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, status: 1)
   end
 
   def move_to_index

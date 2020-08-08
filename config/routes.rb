@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :creditcards, only: [:show, :new, :create, :destroy]
   resources :categories, only: [:index]
   resources :items ,only: [:new, :create, :edit, :update, :show, :destroy] do
+
     member do
       get 'confirm'
       post 'purchase'
