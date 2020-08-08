@@ -1,0 +1,46 @@
+.category__parent{
+  display: none;
+}
+
+// カテゴリーの大枠の要素の共通項
+.category__list{
+  position: absolute;
+  background-color: white;
+}
+
+.categories{
+  padding-bottom: 10px;
+  &:hover{
+    .category__parent{
+      display: block;
+      &--name{
+        width: 100%;
+        color: black;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 13px;
+        letter-spacing: 2px;
+      }
+      li {
+        &:hover{
+          .category__child{
+            width: 100%;
+            display: block;
+            top: 0;
+            left: 221px;
+            li {
+              &:hover{
+                .category__grandchild{
+                  width: 300px;
+                  display: block;
+                  top: 0;
+                  left: 220px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

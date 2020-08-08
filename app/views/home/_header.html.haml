@@ -14,8 +14,7 @@
       %li.list__category
         -#= link_to categories_path do
           = image_tag 'icon/icon_category.png', height: '12.5', width: '15'
-        カテゴリー
-        -#= render partial: 'home/categorymenu'
+        = render partial: 'home/categorymenu', locals: { categories: @categories }
 
       %li.list__brand
         = link_to "#" do
