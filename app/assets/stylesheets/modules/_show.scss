@@ -377,6 +377,14 @@
           font-size: 18px;
           border-radius: 100px;
         }
+        .commentBox-btn{
+          &-edit{
+            margin-top: 20px;
+          }
+          &-delete{
+            margin-top: 20px;
+          }
+        }
 
         .new_comment .commentBtn--blue, .new_message .commentBtn--blue {
           background-color: #ffb340;
@@ -611,8 +619,6 @@
   transition: 200ms;
 }
 
-
-img {
-  width: 100%;
-  vertical-align: bottom;
+.detail_image_sub{
+  margin-left: 50px;
 }

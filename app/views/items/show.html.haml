@@ -1,8 +1,4 @@
 = render 'home/header'
-= @item.name
-
-
-
 %nav.breadCrumbs
   %ul
     %li
@@ -48,14 +44,14 @@
           %div.itemBox__body
             %ul
               %li
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG",class:"image_main"
                 //=@item.itemimages.image[i]
                 %ul
                   %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", size: "75x75"
+                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", size: "75x75", class: "detail_image_sub"
                     //=@item.itemimages.image[i]
                   %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", size: "75x75"
+                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", size: "75x75", class: "detail_image_sub"
                     //=@item.itemimages.image[i]
           %div.itemBox__price
             %span
@@ -154,7 +150,10 @@
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br
             = f.submit "コメントする", class: "commentBtn"
-        = link_to "この商品を削除する", item_path(@item.id), method: :delete
+          .commentBox-btn-edit
+            = link_to "商品情報を編集する", edit_item_path(@item.id)
+          .commentBox-btn-delete
+            = link_to "この商品を削除する", item_path(@item.id), method: :delete
             
       %ul.links
         %li
