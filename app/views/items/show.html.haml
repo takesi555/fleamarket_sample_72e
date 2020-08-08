@@ -1,4 +1,216 @@
+= render 'home/header'
 = @item.name
 
-= link_to "削除", item_path(@item.id), method: :delete
 
+
+%nav.breadCrumbs
+  %ul
+    %li
+      = link_to("/") do
+        %a
+          FURIMA
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to("/") do
+        %a
+          ベビー・キッズ
+          //=@item.categorie.name
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to("/") do
+        %a
+          ベビー服(男の子用)  ~95cm
+          //=@item.categorie.name
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to("/") do
+        %a
+          アウター
+          //=@item.categorie.name
+    %li
+      %i.fa.fa-angle-right
+    %li>
+      %p
+        ee
+        //=@item.name
+%div.main
+  %div.showMain
+    %div.contentLeft
+    %div.contentRight
+      %div.topContent
+        %div.itemBox
+          %h2.itemBox__name
+            ee
+            //=@item.name
+          %div.itemBox__body
+            %ul
+              %li
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+                //=@item.itemimages.image[i]
+                %ul
+                  %li
+                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", size: "75x75"
+                    //=@item.itemimages.image[i]
+                  %li
+                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", size: "75x75"
+                    //=@item.itemimages.image[i]
+          %div.itemBox__price
+            %span
+              ¥1000
+              //=@item.price
+            %div.itemBox__price-detail
+            %span
+              (税込)
+            %span
+              送料込み
+        %div.itemDetail
+          eee
+          //=@item.description
+          %div.table
+            %table
+              %tbody
+                %tr
+                  %th
+                    出品者
+                    //=@item.user[buyer_id].name
+                  %td
+                    ss
+                    //=@item.name
+                %tr
+                  %th
+                    カテゴリー
+                    //=@item.categorie.name
+                  %td
+                    = link_to("/") do
+                      %a
+                      ベビー・キッズ
+                      //=@item.categorie.name
+                    %br
+                    = link_to("/") do
+                      %a
+                        ベビー服(男の子用)  ~95cm
+                        //=@item.categorie.name
+                    %br>
+                    = link_to("/") do
+                      %a
+                        アウター
+                        //=@item.categorie.name
+                %tr
+                  %th
+                    ブランド
+                    //=@item.brands[brand_id].name
+                  %td
+                %tr
+                  %th
+                    商品のサイズ
+                    //=@item.size
+                  %td
+                %tr
+                  %th
+                    商品の状態
+                    //=@item.conditions[condition_id].name
+                  %td
+                    新品/未使用
+                    //=@item.preparation[preparation_id].name
+                %tr
+                  %th
+                    配送料の負担
+                  %td
+                    送料込み（出品者負担）
+                %tr
+                  %th
+                    発送元の地域
+                  %td
+                    = link_to("/") do
+                      %a
+                        北海道
+                      
+                %tr
+                  %th
+                    発送日の目安
+                  %td
+                    1-2日で発送
+          %div.optionalArea
+            %ul
+              %li#likeBtn.optionalBtn.likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.optional
+              %li.optionalBtn
+                = link_to("/") do
+                  %a
+                    %i.fa.fa-flag
+                    不適切な商品の通報
+        %div.commentBox
+          %ul.commentContents
+          = form_for @item, html: {id:"new_comment", class: "new_comment"}, :url => {:action => :show} do |f|
+            = f.text_area :name, required:"required", name:"comment[body]", id: "comment_body"
+            %p.noticeMsg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br
+            = f.submit "コメントする", class: "commentBtn"
+        = link_to "この商品を削除する", item_path(@item.id), method: :delete
+            
+      %ul.links
+        %li
+          = link_to("/") do
+            %a
+              %i.fa.fa-angle-left
+              %span
+                前の商品
+        %li
+          = link_to("/") do
+            %a
+              %span
+                後ろの商品
+              %i.fa.fa-angle-right
+      %div.relatedItems
+        = link_to("/") do
+          %a
+            ベビー・キッズをもっと見る
+        %div.productLists
+          %div.productList
+            = link_to("/products/3") do
+              %a
+                %figure.productList--img
+                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+              %div.productList--body
+                %h3.name
+                  product3
+                %div.details
+                  %ul
+                    %li
+                      30000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                        0
+                  %p
+                    (税込)
+%aside.appBanner
+  %div.inner
+    %h2.inner__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text
+      今すぐ無料ダウンロード！
+    %div.inner__icon
+      = link_to("/") do
+        %a
+          = image_tag "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class: "linkIcon aBtn"
+      = link_to("/") do
+        %a
+          = image_tag "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class: "linkIcon gBtn"
+
+= render 'home/footer'
+
+= link_to("/") do
+  %a
+    %div.purchaseBtn
+      %span.purchaseBtn__text
+        出品する
+        = link_to new_item_path do
+          = image_tag "/assets/icon_camera.png", class: "purchaseBtn__icon"
