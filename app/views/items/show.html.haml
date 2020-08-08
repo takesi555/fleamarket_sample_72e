@@ -142,7 +142,7 @@
                     不適切な商品の通報
         %div.commentBox
           %ul.commentContents
-          = form_for @item, html: {id:"new_comment", class: "new_comment"}, :url => {:action => :show} do |f|
+          = form_for @item, html: {id:"new_comment", class: "new_comment"}, url: {action: :show} do |f|
             = f.text_area :name, required:"required", name:"comment[body]", id: "comment_body"
             %p.noticeMsg
               相手のことを考え丁寧なコメントを心がけましょう。
