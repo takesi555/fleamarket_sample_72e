@@ -2,27 +2,27 @@
 %nav.breadCrumbs
   %ul
     %li
-      = link_to("/") do
+      = link_to root_path do
         %a
           FURIMA
     %li
       %i.fa.fa-angle-right
     %li
-      = link_to("/") do
+      = link_to root_path do
         %a
           ベビー・キッズ
           //=@item.categorie.name
     %li
       %i.fa.fa-angle-right
     %li
-      = link_to("/") do
+      = link_to root_path do
         %a
           ベビー服(男の子用)  ~95cm
           //=@item.categorie.name
     %li
       %i.fa.fa-angle-right
     %li
-      = link_to("/") do
+      = link_to root_path do
         %a
           アウター
           //=@item.categorie.name
@@ -80,17 +80,17 @@
                     カテゴリー
                     //=@item.categorie.name
                   %td
-                    = link_to("/") do
+                    = link_to root_path do
                       %a
                       ベビー・キッズ
                       //=@item.categorie.name
                     %br
-                    = link_to("/") do
+                    = link_to root_path do
                       %a
                         ベビー服(男の子用)  ~95cm
                         //=@item.categorie.name
                     %br>
-                    = link_to("/") do
+                    = link_to root_path do
                       %a
                         アウター
                         //=@item.categorie.name
@@ -120,7 +120,7 @@
                   %th
                     発送元の地域
                   %td
-                    = link_to("/") do
+                    = link_to root_path do
                       %a
                         北海道
                       
@@ -136,7 +136,7 @@
                 お気に入り 0
             %ul.optional
               %li.optionalBtn
-                = link_to("/") do
+                = link_to root_path do
                   %a
                     %i.fa.fa-flag
                     不適切な商品の通報
@@ -157,19 +157,19 @@
             
       %ul.links
         %li
-          = link_to("/") do
+          = link_to root_path do
             %a
               %i.fa.fa-angle-left
               %span
                 前の商品
         %li
-          = link_to("/") do
+          = link_to root_path do
             %a
               %span
                 後ろの商品
               %i.fa.fa-angle-right
       %div.relatedItems
-        = link_to("/") do
+        = link_to root_path do
           %a
             ベビー・キッズをもっと見る
         %div.productLists
@@ -197,16 +197,16 @@
     %p.inner__text
       今すぐ無料ダウンロード！
     %div.inner__icon
-      = link_to("/") do
+      = link_to root_path do
         %a
           = image_tag "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class: "linkIcon aBtn"
-      = link_to("/") do
+      = link_to root_path do
         %a
           = image_tag "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class: "linkIcon gBtn"
 
 = render 'home/footer'
 
-= link_to("/") do
+= link_to root_path do
   %a
     %div.purchaseBtn
       %span.purchaseBtn__text

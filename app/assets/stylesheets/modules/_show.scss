@@ -294,11 +294,11 @@
             border-radius: 15px;
             line-height: 1.5;
 
-            .commentBody__text {
+            &__text {
               min-height: 40px;
             }
 
-            .commentBody__time {
+            &__time {
               opacity: 0.5;
               margin: 12px 0 0;
 
@@ -551,30 +551,31 @@
   .inner {
     color: #fff;
     text-align: center;
-  }
-
-  .inner__title {
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 1.4;
-  }
-
-  .inner__text {
-    font-size: 35px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  }
-
-  .inner__icon {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 20px auto 0;
-
-    a:first-child {
-      margin-right: 10px;
+    &__title {
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
     }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    }
+    &__icon {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+
+      a:first-child {
+        margin-right: 10px;
+      }
+    }
+
   }
+
+
+
 
   .bgIcon {
     position: absolute;
@@ -600,24 +601,24 @@
   right: 32px;
   position: fixed;
   padding: 15px;
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  
+  &__icon {
+    width: 60%;
+  }
+  
+  &:hover {
+    opacity: .9;
+    transition: 200ms;
+  }
 }
 
-.purchaseBtn__text {
-  color: #fff;
-  display: block;
-  font-size: 18px;
-  text-decoration: none;
-  margin-bottom: 5px;
-}
-
-.purchaseBtn__icon {
-  width: 60%;
-}
-
-.purchaseBtn:hover {
-  opacity: .9;
-  transition: 200ms;
-}
 
 .detail_image_sub{
   margin-left: 50px;
