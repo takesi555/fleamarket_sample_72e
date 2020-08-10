@@ -4,12 +4,220 @@
 - if flash[:alert]
   .alert-alert
     = flash[:alert]
-.main
+    
+.main-section
   .header
     -if user_signed_in?
       = render "header_login"
     -else
       = render "header_unlogin"
 
-%h1 トップページ
-= @product
+  .top-tier
+    .top-tier__text
+      .top-tier__text--large
+        人生を変えるフリマアプリ
+      .top-tier__text--small
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+    %ul.top-tier__link--tag
+      %li.link__apple
+        = link_to image_tag('app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
+      %li.link__google
+        = link_to image_tag('google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+      
+  .middle-tier
+    .middle-tier__subtitle
+      フリマが選ばれる3つの特徴
+    .middle-tier__lists
+      .middle-tier__lists--list
+        .lists__list--pict
+          %span.number
+            1
+          = image_tag src="/assets/pict-reason-01.jpg", size: "274x274"
+        .lists__list--text
+          ３分
+          %span
+            ですぐ出品
+        .lists__list--description
+          スマホで入力するだけで簡単に出品できる！
+      .middle-tier__lists--list
+        .lists__list--pict
+          %span.number
+            2
+          = image_tag src="/assets/pict-reason-02.jpg", size: "274x274"
+        .lists__list--text
+          シンプル
+          %span
+            で使いやすい
+        .lists__list--description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      .middle-tier__lists--list
+        .lists__list--pict
+          %span.number
+            3
+          = image_tag src="/assets/pict-reason-03.jpg", size: "274x274"
+        .lists__list--text
+          業界最安
+          %span
+            手数料
+        .lists__list--description
+          最大3%でお得に出品&購入！
+
+  .lower-tier
+    .lower-tier__image
+      .lower-tier__image--text
+        会員数日本一位
+      .lower-tier__image--description
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      %ul.lower-tier__link--tag
+        %li.link__apple
+          = link_to image_tag('app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
+        %li.link__google
+          = link_to image_tag('google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+
+  .top-feature
+    .top-feature__title
+      フリマの特徴
+    .top-feature__lists
+      .lists__list
+        .lists__list--pict
+          = image_tag src="/assets/icon-01.png", size: "148x228"
+        .lists__list--text
+          簡単に売り買いできる
+        .lists__list--description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .lists__list
+        .lists__list--pict
+          = image_tag src="/assets/icon-03.png", size: "148x228"
+        .lists__list--text
+          売上金は即日振込みに対応
+        .lists__list--description
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .lists__list
+        .lists__list--pict
+          = image_tag src="/assets/icon-04.png", size: "148x228"
+        .lists__list--text
+          様々な支払いに対応
+        .lists__list--description
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  .pickup-section
+    .pickup-section__header
+      ピックアップカテゴリー
+
+    .pickup-section__main
+      .pickup-section__main--title
+        新規投稿商品
+      .pickup-section__main--lists
+        .lists__list
+          .lists__list--pict
+            = image_tag src="/assets/IMG_9072.jpeg", size: "220x150"
+          .lists__list--body
+            .name
+              商品名1
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+        .lists__list
+          .lists__list--pict
+            = image_tag src="/assets/a004.png", size: "220x150"
+          .lists__list--body
+            .name
+              商品名2
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+        .lists__list
+          .lists__list--pict
+            = image_tag src="/assets/a001.png", size: "220x150"
+          .lists__list--body
+            .name
+              商品名3
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+        .lists__list
+          .lists__list--pict
+            = image_tag src="/assets/a007.png", size: "220x150"
+          .lists__list--body
+            .name
+              商品名4
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+  .pickup-section
+    .pickup-section__header
+      ピックアップブランド
+
+    .pickup-section__main
+      .pickup-section__main--title
+        新規投稿商品
+      .pickup-section__main--lists
+        .lists__list
+          %li.link__pict
+            = link_to image_tag('IMG_9072.jpeg',size: '220x150')
+          .lists__list--body
+            .name
+              商品名1
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+        .lists__list
+          .lists__list--pict
+            = image_tag src="/assets/a004.png", size: "220x150"
+          .lists__list--body
+            .name
+              商品名2
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+        .lists__list
+          .lists__list--pict
+            = image_tag src="/assets/a001.png", size: "220x150"
+          .lists__list--body
+            .name
+              商品名3
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+        .lists__list
+          .lists__list--pict
+            = image_tag src="/assets/a007.png", size: "220x150"
+          .lists__list--body
+            .name
+              商品名4
+            .details
+              1000円
+              %i.fa.fa-star.likeIcon 0
+            .details__tax
+              (税込)
+
+= render "bottom"
+= render "sell-tab"
+-# = render "footer"
