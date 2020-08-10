@@ -19,42 +19,34 @@
       %div.topContent
         %div.itemBox
           %h2.itemBox__name
-            ee
-            //=@item.name
+            = @item.name
           %div.itemBox__body
             %ul
               %li
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG",class:"image_main"
-                //=@item.itemimages.image[i]
+                = image_tag @item.itemimages.first.image_url, class: "image_main  "
                 %ul
-                  %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", size: "75x75", class: "detail_image_sub"
-                    //=@item.itemimages.image[i]
-                  %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", size: "75x75", class: "detail_image_sub"
-                    //=@item.itemimages.image[i]
+                  - for i in 1..(@item.itemimages.count - 1) do
+                    %li
+                      = image_tag @item.itemimages[i].image_url,size:"75x75", class: "detail_image_sub"
           %div.itemBox__price
             %span
-              ¥1000
-              //=@item.price
+              ¥
+              = @item.price
             %div.itemBox__price-detail
             %span
               (税込)
             %span
-              送料込み
+              = @item.postage.name
         %div.itemDetail
-          eee
-          //=@item.description
+          = @item.description
           %div.table
             %table
               %tbody
                 %tr
                   %th
                     出品者
-                    //=@item.user[buyer_id].name
                   %td
-                    ss
-                    //=@item.name
+                    = @item.user.nickname
                 %tr
                   %th
                     カテゴリー
@@ -63,38 +55,34 @@
                 %tr
                   %th
                     ブランド
-                    //=@item.brands[brand_id].name
+                    = @item.brand
                   %td
                 %tr
                   %th
                     商品のサイズ
-                    //=@item.size
+                    =@item.size
                   %td
                 %tr
                   %th
                     商品の状態
-                    //=@item.conditions[condition_id].name
                   %td
-                    新品/未使用
-                    //=@item.preparation[preparation_id].name
+                    =@item.condition.name
                 %tr
                   %th
                     配送料の負担
                   %td
-                    送料込み（出品者負担）
+                    = @item.postage.name
                 %tr
                   %th
                     発送元の地域
                   %td
-                    = link_to root_path do
-                      %a
-                        北海道
+                    = @item.prefecture.name
                       
                 %tr
                   %th
                     発送日の目安
                   %td
-                    1-2日で発送
+                    =@item.preparation.name
           %div.optionalArea
             %ul
               %li#likeBtn.optionalBtn.likeBtn
@@ -116,10 +104,11 @@
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br
             = f.submit "コメントする", class: "commentBtn"
-          .commentBox-btn-edit
-            = link_to "商品情報を編集する", edit_item_path(@item.id)
-          .commentBox-btn-delete
-            = link_to "この商品を削除する", item_path(@item.id), method: :delete
+          - if current_user.id == @item.user.id then
+            .commentBox-btn-edit
+              = link_to "商品情報を編集する", edit_item_path(@item.id)
+            .commentBox-btn-delete
+              = link_to "この商品を削除する", item_path(@item.id), method: :delete
             
       %ul.links
         %li
