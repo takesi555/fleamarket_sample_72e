@@ -31,5 +31,6 @@ class UsersController < ApplicationController
     # {name:"電話番号の確認",path: "#",verb: "GET"},
     {name:"ログアウト",path: destroy_user_session_path,verb: "DELETE"}
   ]
+    @parents = Category.all
   end
 end

@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @parents = Category.all
   end
 
   def update

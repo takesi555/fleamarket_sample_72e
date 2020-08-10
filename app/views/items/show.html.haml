@@ -5,34 +5,13 @@
       = link_to root_path do
         %a
           FURIMA
-//以下パンくずリスト実装時参考用
-//    %li
-//      %i.fa.fa-angle-right
-//    %li
-//      = link_to root_path do
-//        %a
-//          ベビー・キッズ
-//          //=@item.categorie.name
-//    %li
-//      %i.fa.fa-angle-right
-//    %li
-//      = link_to root_path do
-//        %a
-//          ベビー服(男の子用)  ~95cm
-//          //=@item.categorie.name
-//    %li
-//      %i.fa.fa-angle-right
-//    %li
-//      = link_to root_path do
-//        %a
-//          アウター
-//          //=@item.categorie.name
-//    %li
-//      %i.fa.fa-angle-right
-//    %li>
-//      %p
-//        ee
-//        //=@item.name
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to root_path do
+        %a
+          = @item.category.name
+
 %div.main
   %div.showMain
     %div.contentLeft
@@ -67,27 +46,12 @@
                   %th
                     出品者
                   %td
-                    =@item.user.nickname
-                //カテゴリ機能未実装のため以下はコメントアウト
-                //%tr
-                //  %th
-                //    カテゴリー
-                //    //=@item.categorie.name
-                //  %td
-                //    = link_to root_path do
-                //      %a
-                //      ベビー・キッズ
-                //      //=@item.categorie.name
-                //    %br
-                //    = link_to root_path do
-                //      %a
-                //        ベビー服(男の子用)  ~95cm
-                //        //=@item.categorie.name
-                //    %br>
-                //    = link_to root_path do
-                //      %a
-                //        アウター
-                //        //=@item.categorie.name
+                    = @item.user.nickname
+                %tr
+                  %th
+                    カテゴリー
+                  %td
+                    = @item.category.name
                 %tr
                   %th
                     ブランド
