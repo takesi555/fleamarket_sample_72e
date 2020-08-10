@@ -40,9 +40,9 @@
 |category_id|references|bigint|null:false,foreign_key:true|
 |brand_id|references|bigint|null:false,foreign_key:true|
 |size|string|null:false|
-|condition|integer|null:false|
-|preparation|integer|null:false|
-|postage|integer|null:false|
+|condition_id|integer|null:false|
+|preparation_id|integer|null:false|
+|postage_id|integer|null:false|
 |user_id|references|bigint|null:false,foreign_key:true|
 |status|integer|null:false|
 

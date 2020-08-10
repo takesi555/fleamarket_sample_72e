@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :registration, only: [:index]
   resources :creditcards, only: [:show, :new, :create, :destroy]
   resources :categories, only: [:index]
-  resources :items ,only: [:new, :create, :edit, :update, :show, :destroy] do
+  resources :items do
+
     member do
       get 'confirm'
       post 'purchase'
