@@ -10,28 +10,8 @@
     %li
       = link_to root_path do
         %a
-          ベビー・キッズ
-          //=@item.categorie.name
-    %li
-      %i.fa.fa-angle-right
-    %li
-      = link_to root_path do
-        %a
-          ベビー服(男の子用)  ~95cm
-          //=@item.categorie.name
-    %li
-      %i.fa.fa-angle-right
-    %li
-      = link_to root_path do
-        %a
-          アウター
-          //=@item.categorie.name
-    %li
-      %i.fa.fa-angle-right
-    %li>
-      %p
-        ee
-        //=@item.name
+          = @item.category.name
+
 %div.main
   %div.showMain
     %div.contentLeft
@@ -78,22 +58,8 @@
                 %tr
                   %th
                     カテゴリー
-                    //=@item.categorie.name
                   %td
-                    = link_to root_path do
-                      %a
-                      ベビー・キッズ
-                      //=@item.categorie.name
-                    %br
-                    = link_to root_path do
-                      %a
-                        ベビー服(男の子用)  ~95cm
-                        //=@item.categorie.name
-                    %br>
-                    = link_to root_path do
-                      %a
-                        アウター
-                        //=@item.categorie.name
+                    = @item.category.name
                 %tr
                   %th
                     ブランド
