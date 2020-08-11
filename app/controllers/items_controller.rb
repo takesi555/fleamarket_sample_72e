@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def index
     #@items = Post.where.(category_id: 1..10).order('created_at DESC').limit(10).where.not(condition: 1).where(condition: 0)
     @items = Item.all
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
