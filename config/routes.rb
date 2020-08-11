@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     post 'destinations', to: 'users/registrations#create_destination'
   end
   
-  root to: 'products#index'
+  root to: 'items#index'
   resources :users, only: [:show]
   resources :registration, only: [:index]
   resources :creditcards, only: [:show, :new, :create, :destroy]

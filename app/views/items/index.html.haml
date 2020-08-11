@@ -7,10 +7,7 @@
     
 .main-section
   .header
-    -if user_signed_in?
-      = render "header_login"
-    -else
-      = render "header_unlogin"
+    = render "home/header"
 
   .top-tier
     .top-tier__text
@@ -114,6 +111,10 @@
       .pickup-section__main--title
         新規投稿商品
       .pickup-section__main--lists
+        %li.items__list
+          - @items.each do |item|
+            = render "item", item: item
+
         .lists__list
           .lists__list--pict
             = image_tag src="/assets/IMG_9072.jpeg", size: "220x150"
@@ -218,6 +219,6 @@
             .details__tax
               (税込)
 
-= render "bottom"
-= render "sell-tab"
+= render "home/bottom"
+= render "home/sell-tab"
 = render "home/footer"
