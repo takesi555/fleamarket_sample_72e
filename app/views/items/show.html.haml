@@ -145,20 +145,7 @@
                         0
                   %p
                     (税込)
-%aside.appBanner
-  %div.inner
-    %h2.inner__title
-      だれでもかんたん、人生を変えるフリマアプリ
-    %p.inner__text
-      今すぐ無料ダウンロード！
-    %div.inner__icon
-      = link_to root_path do
-        %a
-          = image_tag "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class: "linkIcon aBtn"
-      = link_to root_path do
-        %a
-          = image_tag "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class: "linkIcon gBtn"
-
+= render 'home/bottom'
 = render 'home/footer'
 
 = link_to root_path do
