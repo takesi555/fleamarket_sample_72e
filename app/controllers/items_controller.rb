@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   before_action :set_show, only: [:edit, :update, :show, :destroy]
 
   def index
-    @items = Item.where.not(status: '2').limit(3)
+    @items = Item.where.not(status: '2').order(id: "DESC").limit(3)
     @parents = Category.where(ancestry: nil)
   end
 
