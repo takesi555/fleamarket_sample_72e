@@ -1,0 +1,13 @@
+= link_to item_path(item.id), class: "items__list" do
+  %li.items__list
+    %figure.item
+        
+      .items__list--body
+        .items__list--image
+          =image_tag item.itemimages.first.image_url, class: "image"
+        %figucaption.item__text
+          = item.name
+        .list__body--label
+          = "¥ #{item.price.to_s(:delimited)}"
+        .tax
+          (税込)

@@ -1,12 +1,16 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,except: [:index]
   before_action -> {
     set_payjp_api
     set_item
   },only: [:confirm,:purchase]
 
-  before_action :move_to_index
   before_action :set_show, only: [:edit, :update, :show, :destroy]
+
+  def index
+    @items = Item.where.not(status: '2')
+    @parents = Category.where(ancestry: nil)
+  end
 
   def new
     @item = Item.new
