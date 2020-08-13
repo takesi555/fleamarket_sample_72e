@@ -140,6 +140,18 @@
             font-weight: bold;
             margin: 0 10px 0 0;
           }
+          &__confirmBtn{
+            padding-top: 10px;
+            display:block;
+            margin:40px auto;
+            width:40%;
+            height: 40px;
+            color: white;
+            font-weight: bold;
+            background-color: red;
+            border-radius: 5px;
+            cursor: pointer;
+          }
         }
 
         .itemBox__price-detail {
