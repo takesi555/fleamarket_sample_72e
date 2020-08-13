@@ -38,8 +38,9 @@
             %span
               = @item.postage.name
 
-            .content__price--buttons
-              = link_to "購入確認画面に行く",confirm_item_path(@item.id),class: "itemBox__price__confirmBtn"
+            - if user_signed_in? && current_user.id != @item.user.id then
+              .content__price--buttons
+                = link_to "購入確認画面に行く",confirm_item_path(@item.id),class: "itemBox__price__confirmBtn"
         %div.itemDetail
           = @item.description
           %div.table
