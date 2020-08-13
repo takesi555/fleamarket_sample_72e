@@ -16,14 +16,11 @@ body{
 }
 
 .single-header{
+  height: 120px;
   width: 768px;
   margin: 0 auto;
   &__logo{
     width: 185px;
-    margin-top: 40px;
-  }
-  &__progress{
-
   }
 }
 
@@ -243,7 +240,6 @@ body{
   width: 520px;
   height: 220px;
   margin: 0 auto;
-  position: absolute;
   right: 0;
   left: 0;
   z-index: 1;
