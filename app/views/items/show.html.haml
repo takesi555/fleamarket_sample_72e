@@ -103,9 +103,8 @@
             %ul.optional
               %li.optionalBtn
                 = link_to root_path do
-                  %a
-                    %i.fa.fa-flag
-                    不適切な商品の通報
+                  %i.fa.fa-flag
+                  不適切な商品の通報
         %div.commentBox
           %ul.commentContents
           = form_for @item, html: {id:"new_comment", class: "new_comment"}, url: {action: :show} do |f|

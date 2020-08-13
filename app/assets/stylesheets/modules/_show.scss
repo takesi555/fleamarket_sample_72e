@@ -157,7 +157,7 @@
         .itemBox__price-detail {
           font-size: 16px;
         }
-
+      }
         .table {
           margin-bottom: 20px;
 
@@ -195,6 +195,9 @@
           line-height: 1.5;
           font-size: 18px;
           margin-bottom: 30px;
+          .table{
+            background-color: white;
+          }
         }
 
         .optionalArea {
@@ -247,7 +250,6 @@
             }
           }
         }
-      }
 
       .commentBox {
         padding: 24px;
