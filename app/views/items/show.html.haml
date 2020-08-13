@@ -41,6 +41,13 @@
             - if user_signed_in? && current_user.id != @item.user.id then
               .content__price--buttons
                 = link_to "購入確認画面に行く",confirm_item_path(@item.id),class: "itemBox__price__confirmBtn"
+            - else
+              %div
+              自分で出品した商品は購入できません。
+              %div
+              もしログインしていなければ、
+              = link_to "こちらからログインしてください。",new_user_session_path
+              
         %div.itemDetail
           = @item.description
           %div.table
