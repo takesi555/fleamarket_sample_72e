@@ -37,6 +37,7 @@
               (税込)
             %span
               = @item.postage.name
+
             .content__price--buttons
               = link_to "購入確認画面に行く",confirm_item_path(@item.id),class: "itemBox__price__confirmBtn"
         %div.itemDetail
@@ -57,7 +58,8 @@
                 %tr
                   %th
                     ブランド
-                    = @item.brand.name
+                    - if @item.brand.present? then
+                      = @item.brand.name
                   %td
                 %tr
                   %th
@@ -106,7 +108,7 @@
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br
             = f.submit "コメントする", class: "commentBtn"
-          - if current_user.id == @item.user.id then
+          - if user_signed_in? && current_user.id == @item.user.id then
             .commentBox-btn-edit
               = link_to "商品情報を編集する", edit_item_path(@item.id)
             .commentBox-btn-delete
